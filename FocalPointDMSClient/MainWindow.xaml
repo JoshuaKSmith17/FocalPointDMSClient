@@ -10,7 +10,7 @@
         <Button 
             Name="SubmitButton" 
             Click="SubmitButton_Click"
-            Content="Submit" 
+            Content="Customers" 
             Margin="10,10,0,849"
             HorizontalAlignment="Left"
             Width="130"

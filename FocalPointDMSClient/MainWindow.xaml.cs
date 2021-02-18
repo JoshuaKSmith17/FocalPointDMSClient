@@ -16,6 +16,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Formatting;
 using System.Collections.ObjectModel;
+using FocalPointDMSClient.Services;
 
 namespace FocalPointDMSClient
 {
@@ -24,41 +25,34 @@ namespace FocalPointDMSClient
     /// </summary>
     public partial class MainWindow : Window
     {
-        
-        
+        public FocalPointDmsApi focalPointDmsApi;
+
         public MainWindow()
         {
             InitializeComponent();
-            
+            focalPointDmsApi = new FocalPointDmsApi();
             
     }
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            using (var client = new HttpClient())
+            ObservableCollection<Customer> customersView = new ObservableCollection<Customer>();
+
+            focalPointDmsApi = new FocalPointDmsApi();
+                
+            var customers = focalPointDmsApi.GetCustomers().Result;
+
+            foreach (var customer in customers)
             {
-                ObservableCollection<Customer> customersView = new ObservableCollection<Customer>();
-                client.BaseAddress = new Uri("https://localhost:44345/api/");
-
-                var responseTask = client.GetAsync("Customers");
-                responseTask.Wait();
-
-                var results = responseTask.Result.Content.ReadAsAsync<Customer[]>();
-                results.Wait();
-
-                var customers = results.Result;
-
-                TestBox.Text = "";
-
-                foreach (var customer in customers)
-                {
-                    customersView.Add(customer);
-                }
-
-                ViewDataGrid.DataContext = customersView;
-
-
+                customersView.Add(customer);
             }
+
+            ViewDataGrid.DataContext = customersView;
+
+            TestBox.Text = "Customers Loaded";
+
+
+
         }
     }
 }
