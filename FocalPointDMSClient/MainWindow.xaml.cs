@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Formatting;
+using System.Collections.ObjectModel;
 
 namespace FocalPointDMSClient
 {
@@ -23,15 +24,20 @@ namespace FocalPointDMSClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        
+        
         public MainWindow()
         {
             InitializeComponent();
-        }
+            
+            
+    }
 
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             using (var client = new HttpClient())
             {
+                ObservableCollection<Customer> customersView = new ObservableCollection<Customer>();
                 client.BaseAddress = new Uri("https://localhost:44345/api/");
 
                 var responseTask = client.GetAsync("Customers");
@@ -46,10 +52,12 @@ namespace FocalPointDMSClient
 
                 foreach (var customer in customers)
                 {
-                    TestBox.Text += customer.Name + "\n";
+                    customersView.Add(customer);
                 }
-                
-                
+
+                ViewDataGrid.DataContext = customersView;
+
+
             }
         }
     }

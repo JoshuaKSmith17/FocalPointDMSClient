@@ -5,22 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FocalPointDMSClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Name="SubmitButton" 
-                Click="SubmitButton_Click"
-                Content="Submit" 
-                HorizontalAlignment="Left" 
-                Margin="469,277,0,0" 
-                VerticalAlignment="Top"
-                />
-        <TextBox Name="TestBox" 
-                 HorizontalAlignment="Center" 
-                 Text="TextBox" 
-                 TextWrapping="Wrap" 
-                 VerticalAlignment="Center" 
-                 Width="221" 
-                 Height="109"/>
+        Title="MainWindow" Height="900" Width="1440">
+    <Grid Height="884" VerticalAlignment="Top">
+        <Button 
+            Name="SubmitButton" 
+            Click="SubmitButton_Click"
+            Content="Submit" 
+            Margin="10,10,0,849"
+            HorizontalAlignment="Left"
+            Width="130"
+            />
+
+        <TextBox 
+            Name="TestBox" 
+            Text="TextBox" 
+            TextWrapping="Wrap" Margin="10,759,10,10"
+            />
+
+        <DataGrid 
+            Name="ViewDataGrid" 
+            ItemsSource="{Binding}" 
+            AutoGenerateColumns="True"
+            Margin="0,10,0,130" HorizontalAlignment="Right" Width="1295"
+            />
 
     </Grid>
 </Window>
