@@ -4,6 +4,7 @@ using System.Text;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Net.Http;
+using FocalPointDMSClient.Models;
 
 namespace FocalPointDMSClient.Services
 {
@@ -20,10 +21,7 @@ namespace FocalPointDMSClient.Services
 
             var responseTask = Client.GetAsync("Customers");
             responseTask.Wait();
-
             var results = await responseTask.Result.Content.ReadAsAsync<Customer[]>();
-
-
             return results;
         }
     }
