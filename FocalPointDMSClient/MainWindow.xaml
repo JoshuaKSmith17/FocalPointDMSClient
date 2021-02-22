@@ -24,7 +24,7 @@
 
         <DataGrid 
             Name="ViewDataGrid" 
-            ItemsSource="{Binding}" 
+            ItemsSource="{Binding Path=MainDataView}" 
             AutoGenerateColumns="True"
             Margin="0,10,0,130" HorizontalAlignment="Right" Width="1295"
             />
