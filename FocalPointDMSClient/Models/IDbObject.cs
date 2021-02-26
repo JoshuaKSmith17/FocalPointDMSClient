@@ -4,8 +4,7 @@ using System.Text;
 
 namespace FocalPointDMSClient.Models
 {
-    public abstract class DbObject
+    public interface IDbObject
     {
-        public long Id { get; set; }
     }
 }

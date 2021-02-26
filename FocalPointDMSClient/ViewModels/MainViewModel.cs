@@ -8,11 +8,11 @@ namespace FocalPointDMSClient.ViewModels
 {
     public class MainViewModel
     {
-        public ObservableCollection<Customer> MainDataView { get; set; }
+        public ObservableCollection<IDbObject> MainDataView { get; set; }
 
         public MainViewModel()
         {
-            MainDataView = new ObservableCollection<Customer>();
+            MainDataView = new ObservableCollection<IDbObject>();
         }
     }
 }
