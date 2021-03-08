@@ -39,11 +39,15 @@ namespace FocalPointDMSClient
             
     }
 
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        private void GetCustomersButton_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            mainViewModel.MainDataView.Clear();
+            ViewDataGrid.ItemsSource = null;
+            ViewDataGrid.Columns.Clear();
+            ViewDataGrid.Items.Refresh();
+
             focalPointDmsApi = new FocalPointDmsApi();
-                
             var customers = focalPointDmsApi.GetCustomers().Result;
 
             foreach (var customer in customers)
@@ -51,7 +55,19 @@ namespace FocalPointDMSClient
                 mainViewModel.MainDataView.Add(customer);
             }
 
-            //mainViewModel.MainDataView = customersView;
+            DataGridTextColumn dataGridColumn = new DataGridTextColumn();
+            dataGridColumn.Header = "ID";
+            dataGridColumn.Binding = new Binding("Id");
+            ViewDataGrid.Columns.Add(dataGridColumn);
+
+            dataGridColumn = new DataGridTextColumn();
+            dataGridColumn.Header = "Name";
+            dataGridColumn.Binding = new Binding("Name");
+            ViewDataGrid.Columns.Add(dataGridColumn);
+
+            ViewDataGrid.ItemsSource = mainViewModel.MainDataView;
+            ViewDataGrid.Items.Refresh();
+
 
             TestBox.Text = mainViewModel.MainDataView.Count + " Customers Loaded";
 

@@ -8,8 +8,8 @@
         Title="MainWindow" Height="900" Width="1440">
     <Grid Height="884" VerticalAlignment="Top">
         <Button 
-            Name="SubmitButton" 
-            Click="SubmitButton_Click"
+            Name="GetCustomersButton" 
+            Click="GetCustomersButton_Click"
             Content="Customers" 
             Margin="10,10,0,849"
             HorizontalAlignment="Left"
@@ -24,10 +24,9 @@
 
         <DataGrid 
             Name="ViewDataGrid" 
-            ItemsSource="{Binding Path=MainDataView}" 
-            AutoGenerateColumns="True"
-            Margin="0,10,0,130" HorizontalAlignment="Right" Width="1295"
-            />
-
+            ItemsSource="{Binding MainDataView}"            
+            AutoGenerateColumns="False"   
+            
+            Margin="0,10,0,130" HorizontalAlignment="Right" Width="1295"/>
     </Grid>
 </Window>
