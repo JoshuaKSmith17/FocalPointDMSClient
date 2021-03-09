@@ -41,10 +41,8 @@ namespace FocalPointDMSClient
         private void GetCustomersButton_Click(object sender, RoutedEventArgs e)
         {
 
-            mainViewModel.MainDataView.Clear();
-            ViewDataGrid.ItemsSource = null;
-            ViewDataGrid.Columns.Clear();
-            //ViewDataGrid.Items.Refresh();
+            mainViewModel.MainDataView.Clear();            
+            ViewDataGrid.Columns.Clear();            
 
             focalPointDmsApi = new FocalPointDmsApi();
             var customers = focalPointDmsApi.GetCustomers().Result;
@@ -63,9 +61,6 @@ namespace FocalPointDMSClient
             }
 
             ViewDataGrid.ItemsSource = mainViewModel.MainDataView;
-            //ViewDataGrid.Items.Refresh();
-
-
             TestBox.Text = mainViewModel.MainDataView.Count + " Customers Loaded";
 
         }
