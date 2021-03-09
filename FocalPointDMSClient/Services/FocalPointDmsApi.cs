@@ -24,5 +24,15 @@ namespace FocalPointDMSClient.Services
             var results = await responseTask.Result.Content.ReadAsAsync<Customer[]>();
             return results;
         }
+
+        public async ValueTask<Equipment[]> GetEquipment()
+        {
+            Client.BaseAddress = new Uri("https://localhost:44345/api/");
+
+            var responseTask = Client.GetAsync("Equipment");
+            responseTask.Wait();
+            var results = await responseTask.Result.Content.ReadAsAsync<Equipment[]>();
+            return results;
+        }
     }
 }
