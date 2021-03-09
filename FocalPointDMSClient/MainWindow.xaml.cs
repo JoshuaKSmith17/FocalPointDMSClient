@@ -33,7 +33,6 @@ namespace FocalPointDMSClient
         public MainWindow()
         {
             InitializeComponent();
-            focalPointDmsApi = new FocalPointDmsApi();
             mainViewModel = new MainViewModel();
             DataContext = mainViewModel;
             
@@ -45,7 +44,7 @@ namespace FocalPointDMSClient
             mainViewModel.MainDataView.Clear();
             ViewDataGrid.ItemsSource = null;
             ViewDataGrid.Columns.Clear();
-            ViewDataGrid.Items.Refresh();
+            //ViewDataGrid.Items.Refresh();
 
             focalPointDmsApi = new FocalPointDmsApi();
             var customers = focalPointDmsApi.GetCustomers().Result;
@@ -55,18 +54,16 @@ namespace FocalPointDMSClient
                 mainViewModel.MainDataView.Add(customer);
             }
 
-            DataGridTextColumn dataGridColumn = new DataGridTextColumn();
-            dataGridColumn.Header = "ID";
-            dataGridColumn.Binding = new Binding("Id");
-            ViewDataGrid.Columns.Add(dataGridColumn);
+            CustomerView customerView = new CustomerView();
+            ICollection<DataGridColumn> dataGridColumns = customerView.BuildDataGridColumns();
 
-            dataGridColumn = new DataGridTextColumn();
-            dataGridColumn.Header = "Name";
-            dataGridColumn.Binding = new Binding("Name");
-            ViewDataGrid.Columns.Add(dataGridColumn);
+            foreach (var dataGridColumn in dataGridColumns)
+            {
+                ViewDataGrid.Columns.Add(dataGridColumn);
+            }
 
             ViewDataGrid.ItemsSource = mainViewModel.MainDataView;
-            ViewDataGrid.Items.Refresh();
+            //ViewDataGrid.Items.Refresh();
 
 
             TestBox.Text = mainViewModel.MainDataView.Count + " Customers Loaded";
