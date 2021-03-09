@@ -28,5 +28,13 @@
             AutoGenerateColumns="False"   
             
             Margin="0,10,0,130" HorizontalAlignment="Right" Width="1295"/>
+        <Button 
+            x:Name="GetEquipmentButton" 
+            Click="GetEquipmentButton_Click"
+            Content="Equipment" 
+            Margin="10,40,0,819"
+            HorizontalAlignment="Left"
+            Width="130"
+            />
     </Grid>
 </Window>

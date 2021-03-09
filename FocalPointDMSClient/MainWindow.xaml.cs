@@ -1,24 +1,8 @@
-﻿using System;
+﻿using FocalPointDMSClient.Services;
+using FocalPointDMSClient.ViewModels;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Net.Http.Formatting;
-using System.Collections.ObjectModel;
-using FocalPointDMSClient.Services;
-using FocalPointDMSClient.Models;
-using FocalPointDMSClient.ViewModels;
 
 namespace FocalPointDMSClient
 {
@@ -63,6 +47,31 @@ namespace FocalPointDMSClient
             ViewDataGrid.ItemsSource = mainViewModel.MainDataView;
             TestBox.Text = mainViewModel.MainDataView.Count + " Customers Loaded";
 
+        }
+
+        private void GetEquipmentButton_Click(object sender, RoutedEventArgs e)
+        {
+            mainViewModel.MainDataView.Clear();
+            ViewDataGrid.Columns.Clear();
+
+            focalPointDmsApi = new FocalPointDmsApi();
+            var equipments = focalPointDmsApi.GetEquipment().Result;
+
+            foreach (var equipment in equipments)
+            {
+                mainViewModel.MainDataView.Add(equipment);
+            }
+
+            EquipmentView equipmentView = new EquipmentView(); 
+            ICollection<DataGridColumn> dataGridColumns = equipmentView.BuildDataGridColumns();
+
+            foreach (var dataGridColumn in dataGridColumns)
+            {
+                ViewDataGrid.Columns.Add(dataGridColumn);
+            }
+
+            ViewDataGrid.ItemsSource = mainViewModel.MainDataView;
+            TestBox.Text = mainViewModel.MainDataView.Count + " Equipment Items Loaded";
         }
     }
 }
