@@ -27,7 +27,7 @@
             ItemsSource="{Binding MainDataView}"            
             AutoGenerateColumns="False"   
             
-            Margin="0,10,0,130" HorizontalAlignment="Right" Width="1295"/>
+            Margin="0,10,0,130" HorizontalAlignment="Right" Width="1270"/>
         <Button 
             x:Name="GetEquipmentButton" 
             Click="GetEquipmentButton_Click"
