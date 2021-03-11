@@ -10,33 +10,54 @@
     <Grid Height="900" Width="1440" VerticalAlignment="Top">
         <Button 
             Name="GetCustomersButton" 
-            Click="GetCustomersButton_Click"
+            Command="{Binding Path=GetCustomersCommand}"
             Content="Customers" 
-            Margin="10,10,0,849"
+            Margin="10,73,0,797"
             HorizontalAlignment="Left"
             Width="130"
+            Height="30"
             />
-
-        <TextBox 
-            Name="TestBox" 
-            Text="TextBox" 
-            TextWrapping="Wrap" Margin="10,759,10,10"
-            />
-
-        <DataGrid 
-            Name="ViewDataGrid" 
-            ItemsSource="{Binding MainDataView}"            
-            AutoGenerateColumns="False"
-            AlternatingRowBackground="#FFDADAFD"
-            AlternationCount="2"
-            Margin="0,10,10,146" HorizontalAlignment="Right" Width="1285"/>
+        
         <Button 
             x:Name="GetEquipmentButton" 
             Click="GetEquipmentButton_Click"
             Content="Equipment" 
-            Margin="10,56,0,803"
+            Margin="140,73,0,797"
             HorizontalAlignment="Left"
             Width="130"
+            Height="30"
             />
+        
+        <Button 
+            x:Name="RepairOrderButton" 
+
+            Content="Repair Order" 
+            Margin="270,73,0,797"
+            HorizontalAlignment="Left"
+            Width="130"
+            Height="30"
+            />
+
+        <TextBox 
+            Name="TestBox" 
+            Text="" 
+            TextWrapping="Wrap" Margin="10,759,10,10"
+            />
+
+        <DataGrid 
+            Name="ViewDataGrid"
+            ItemsSource="{Binding Path=MainDataTable.DefaultView}"
+            AutoGenerateColumns="True"
+            AlternatingRowBackground="#FFDADAFD"
+            AlternationCount="2"
+            Margin="0,103,0,146" 
+            HorizontalAlignment="Center" 
+            Width="1420"
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>

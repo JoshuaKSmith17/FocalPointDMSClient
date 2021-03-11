@@ -7,19 +7,36 @@ using FocalPointDMSClient.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using FocalPointDMSClient.Services;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace FocalPointDMSClient.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged    
     {
-        public ObservableCollection<IDbObject> MainDataView { get; set; }
-        public DataTable MainDataTable { get; set; }
-        public ICommand GetCustomersCommand;
+        private DataTable dataTable;
+        public event PropertyChangedEventHandler PropertyChanged;
+        public DataTable MainDataTable 
+        { 
+            get { return dataTable; } 
+            set
+            {
+                dataTable = value;
+                OnPropertyChanged();
+            }
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public ICommand GetCustomersCommand { get; set; }
 
         public MainViewModel()
         {
-            MainDataView = new ObservableCollection<IDbObject>();
             MainDataTable = new DataTable();
+            GetCustomersCommand = new GetCustomersCommand();
         }
     }
     
@@ -40,31 +57,34 @@ namespace FocalPointDMSClient.ViewModels
         {
             focalPointDmsApi = new FocalPointDmsApi();
             var customers = focalPointDmsApi.GetCustomers().Result;
-            MainViewModel mainViewModel = (MainViewModel)Application.Current.Resources["mainViewModel"];
+            DataTable dataTable = new DataTable();
+
             DataColumn dataColumn;
             DataRow dataRow;
 
             dataColumn = new DataColumn();
-            dataColumn.DataType = System.Type.GetType("System.Int32");
+            dataColumn.DataType = System.Type.GetType("System.Int64");
             dataColumn.ColumnName = "id";
             dataColumn.ReadOnly = true;
-            mainViewModel.MainDataTable.Columns.Add(dataColumn);
+            dataTable.Columns.Add(dataColumn);
 
             dataColumn = new DataColumn();
-            dataColumn.DataType = System.Type.GetType("string");
+            dataColumn.DataType = System.Type.GetType("System.String");
             dataColumn.ColumnName = "Name";
             dataColumn.ReadOnly = true;
-            mainViewModel.MainDataTable.Columns.Add(dataColumn);
+            dataTable.Columns.Add(dataColumn);
 
             foreach (var customer in customers)
             {
-                dataRow = mainViewModel.MainDataTable.NewRow();
+                dataRow = dataTable.NewRow();
                 dataRow["id"] = customer.Id;
                 dataRow["Name"] = customer.Name;
-                mainViewModel.MainDataTable.Rows.Add(dataRow);
+                dataTable.Rows.Add(dataRow);
             }
 
-            
+            MainViewModel mainViewModel = (MainViewModel)Application.Current.Resources["mainViewModel"];
+            mainViewModel.MainDataTable = dataTable;
+
 
         }
 
