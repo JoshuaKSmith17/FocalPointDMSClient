@@ -51,6 +51,8 @@ namespace FocalPointDMSClient.ViewModels
             MainViewModel mainViewModel = (MainViewModel)Application.Current.Resources["mainViewModel"];
             mainViewModel.MainDataTable = dataTable;
 
+            mainViewModel.StatusTextOutput += customers.Length + " Customers Loaded\n";
+
 
         }
 

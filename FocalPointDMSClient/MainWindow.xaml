@@ -40,7 +40,7 @@
 
         <TextBox 
             Name="TestBox" 
-            Text="" 
+            Text="{Binding Path=StatusTextOutput}" 
             TextWrapping="Wrap" Margin="10,759,10,10"
             />
 
