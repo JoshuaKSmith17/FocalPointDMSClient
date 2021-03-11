@@ -16,10 +16,9 @@ namespace FocalPointDMSClient
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            MainWindow window = new MainWindow();
             ViewModels.MainViewModel mainViewModel = new ViewModels.MainViewModel();
-            window.DataContext = mainViewModel;
-            window.Show();
+            Application.Current.Resources["mainViewModel"] = mainViewModel;
+
         }
     }
 }
