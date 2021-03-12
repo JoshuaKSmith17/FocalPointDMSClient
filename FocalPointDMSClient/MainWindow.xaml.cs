@@ -17,15 +17,5 @@ namespace FocalPointDMSClient
             InitializeComponent();
             DataContext = Application.Current.Resources["mainViewModel"];
         }
-
-        private void GetCustomersButton_Click(object sender, RoutedEventArgs e)
-        {           
-
-        }
-
-        private void GetEquipmentButton_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
     }
 }
