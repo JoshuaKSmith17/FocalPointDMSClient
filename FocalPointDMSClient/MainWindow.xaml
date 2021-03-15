@@ -19,9 +19,8 @@
             />
         
         <Button 
-            x:Name="GetEquipmentButton" 
-            Click="GetEquipmentButton_Click"
-            Content="Equipment" 
+            x:Name="GetEquipmentButton"
+            Content="Equipment"
             Margin="140,73,0,797"
             HorizontalAlignment="Left"
             Width="130"
@@ -29,8 +28,7 @@
             />
         
         <Button 
-            x:Name="RepairOrderButton" 
-
+            x:Name="RepairOrderButton"
             Content="Repair Order" 
             Margin="270,73,0,797"
             HorizontalAlignment="Left"
@@ -54,9 +52,6 @@
             HorizontalAlignment="Center" 
             Width="1420"
             >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="#"/>
-            </DataGrid.Columns>
         </DataGrid>
 
     </Grid>

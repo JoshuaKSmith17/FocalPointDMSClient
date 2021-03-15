@@ -17,6 +17,7 @@ namespace FocalPointDMSClient.ViewModels
         private DataTable dataTable;
         private string statusTextOutput;
         public event PropertyChangedEventHandler PropertyChanged;
+        public ICommand GetCustomersCommand { get; set; }
         public DataTable MainDataTable 
         { 
             get { return dataTable; } 
@@ -41,8 +42,6 @@ namespace FocalPointDMSClient.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-
-        public ICommand GetCustomersCommand { get; set; }
 
         public MainViewModel()
         {
