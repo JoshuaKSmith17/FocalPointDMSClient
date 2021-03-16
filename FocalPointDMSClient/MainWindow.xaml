@@ -20,6 +20,7 @@
         
         <Button 
             x:Name="GetEquipmentButton"
+            Command="{Binding GetEquipmentCommand}"
             Content="Equipment"
             Margin="140,73,0,797"
             HorizontalAlignment="Left"

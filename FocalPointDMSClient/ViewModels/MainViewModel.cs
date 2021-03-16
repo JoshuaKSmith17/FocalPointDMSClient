@@ -1,12 +1,5 @@
-﻿using System;
-using System.Data;
-using System.Windows;
-using System.Collections.Generic;
-using System.Text;
-using FocalPointDMSClient.Models;
-using System.Collections.ObjectModel;
+﻿using System.Data;
 using System.Windows.Input;
-using FocalPointDMSClient.Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
@@ -18,6 +11,7 @@ namespace FocalPointDMSClient.ViewModels
         private string statusTextOutput;
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand GetCustomersCommand { get; set; }
+        public ICommand GetEquipmentCommand { get; set; }
         public DataTable MainDataTable 
         { 
             get { return dataTable; } 
@@ -47,6 +41,7 @@ namespace FocalPointDMSClient.ViewModels
         {
             MainDataTable = new DataTable();
             GetCustomersCommand = new GetCustomersCommand();
+            GetEquipmentCommand = new GetEquipmentCommand();
             StatusTextOutput = new string("");
         }
     }
