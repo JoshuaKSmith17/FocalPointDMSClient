@@ -8,8 +8,8 @@ namespace FocalPointDMSClient.Services
 {
     class EquipmentService : IApiServiceStrategy
     {
-        public HttpClient Client { get; set; }
-        public Equipment[] Items { get; set; }
+        HttpClient Client;
+        Equipment[] Items;
 
         public EquipmentService()
         {
