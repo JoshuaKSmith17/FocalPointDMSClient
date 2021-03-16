@@ -1,4 +1,5 @@
-﻿using FocalPointDMSClient.Services;
+﻿using FocalPointDMSClient.Models;
+using FocalPointDMSClient.Services;
 using System;
 using System.Data;
 using System.Windows;
@@ -8,7 +9,6 @@ namespace FocalPointDMSClient.ViewModels
 {
     public class GetCustomersCommand : ICommand
     {
-        FocalPointDmsApi focalPointDmsApi;
         public bool CanExecute(object parameter)
         {
             return true;
@@ -21,8 +21,10 @@ namespace FocalPointDMSClient.ViewModels
 
         public void Execute(object parameter)
         {
-            focalPointDmsApi = new FocalPointDmsApi();
-            var customers = focalPointDmsApi.GetCustomers().Result;
+            ApiFactory apiFactory = (ApiFactory) Application.Current.Resources["apiFactory"];
+            IApiServiceStrategy service = apiFactory.GetCustomerStrategy();
+            service.QueryAllItems();
+            var customers = (Customer[]) service.GetAllItems();
             DataTable dataTable = new DataTable();
 
             DataColumn dataColumn;
