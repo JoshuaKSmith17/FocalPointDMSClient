@@ -19,6 +19,9 @@ namespace FocalPointDMSClient
             ViewModels.MainViewModel mainViewModel = new ViewModels.MainViewModel();
             Application.Current.Resources["mainViewModel"] = mainViewModel;
 
+            Services.ApiFactory apiFactory = new Services.ApiFactory();
+            Application.Current.Resources["apiFactory"] = apiFactory;
+
         }
     }
 }
