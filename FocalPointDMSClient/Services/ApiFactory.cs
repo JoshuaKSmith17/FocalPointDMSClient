@@ -10,5 +10,10 @@ namespace FocalPointDMSClient.Services
         {
             return new CustomerServices();
         }
+
+        public IApiServiceStrategy GetEquipmentStrategy()
+        {
+            return new EquipmentService();
+        }
     }
 }
