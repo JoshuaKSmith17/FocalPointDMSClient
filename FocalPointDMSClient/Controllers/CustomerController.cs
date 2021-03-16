@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
+﻿using System.Data;
 using System.Windows;
 
 using FocalPointDMSClient.Models;
@@ -10,13 +7,12 @@ using FocalPointDMSClient.Services;
 
 namespace FocalPointDMSClient.Controllers
 {
-    class CustomerController
+    class CustomerController : IDataTableProvider
     {
         DataTable DataTable;
-        public CustomerController(DataTable dataTable)
+        public CustomerController()
         {
-            this.DataTable = dataTable;
-            dataTable.Clear();
+            DataTable = new DataTable();
         }
         public DataTable BuildTable()
         {
@@ -25,7 +21,6 @@ namespace FocalPointDMSClient.Controllers
             service.QueryAllItems();
             var customers = (Customer[]) service.GetAllItems();
 
-            DataTable = new DataTable();
 
             DataColumn dataColumn;
             DataRow dataRow;
