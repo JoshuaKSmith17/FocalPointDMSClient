@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FocalPointDMSClient.Services
 {
-    public class ApiFactory
+    class ApiFactory
     {        
         public IApiServiceStrategy GetCustomerStrategy()
         {

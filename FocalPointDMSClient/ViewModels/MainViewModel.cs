@@ -12,7 +12,7 @@ using System.Runtime.CompilerServices;
 
 namespace FocalPointDMSClient.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged    
+    class MainViewModel : INotifyPropertyChanged    
     {
         private DataTable dataTable;
         private string statusTextOutput;
