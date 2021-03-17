@@ -15,7 +15,7 @@ namespace FocalPointDMSClient.Controllers
         }
         public DataTable BuildTable()
         {
-            var factory = (ApiFactory)Application.Current.Resources["apiFactory"];
+            var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
             IApiServiceStrategy service = factory.GetEquipmentStrategy();
             service.QueryAllItems();
             var items = (Equipment[])service.GetAllItems();

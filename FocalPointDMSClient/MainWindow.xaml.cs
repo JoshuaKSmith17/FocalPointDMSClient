@@ -15,7 +15,7 @@ namespace FocalPointDMSClient
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = Application.Current.Resources["mainViewModel"];
+            DataContext = Application.Current.Properties["mainViewModel"];
         }
     }
 }

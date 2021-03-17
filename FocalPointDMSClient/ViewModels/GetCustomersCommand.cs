@@ -21,7 +21,7 @@ namespace FocalPointDMSClient.ViewModels
 
         public void Execute(object parameter)
         {
-            MainViewModel mainViewModel = (MainViewModel)Application.Current.Resources["mainViewModel"];
+            var mainViewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];
             CustomerController controller = new CustomerController();
             mainViewModel.MainDataTable = controller.BuildTable();
             mainViewModel.StatusTextOutput += mainViewModel.MainDataTable.Rows.Count + " Customers Loaded\n";

@@ -7,6 +7,6 @@ namespace FocalPointDMSClient.Controllers
 {
     interface IDataTableProvider
     {
-        public DataTable BuildTable();
+        DataTable BuildTable();
     }
 }
