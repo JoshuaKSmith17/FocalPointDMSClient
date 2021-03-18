@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Reflection;
+using System.Linq;
+
+using FocalPointDMSClient.Models.OrmModels;
 
 namespace FocalPointDMSClient.Services
 {
     class ApiFactory
-    {        
-        public IApiServiceStrategy GetCustomerStrategy()
+    {   
+        public Dictionary<EntityType, Func<IApiServiceStrategy>> serviceCreators { get; private set; }
+        public ApiFactory()
         {
-            return new CustomerServices();
+            serviceCreators = Assembly.GetExecutingAssembly().GetTypes()
+                .Where(t => typeof (IApiServiceStrategy).IsAssignableFrom(t) && t.IsInterface == false)
+                .Select(t => new Func<IApiServiceStrategy>(() => Activator.CreateInstance(t) as IApiServiceStrategy))
+                .ToDictionary(f => f().EntityType);
         }
-
-        public IApiServiceStrategy GetEquipmentStrategy()
+        
+        public IApiServiceStrategy GetInstance(EntityType entityType)
         {
-            return new EquipmentService();
+            return serviceCreators[entityType]();
         }
     }
 }
