@@ -46,6 +46,7 @@
         <DataGrid 
             Name="ViewDataGrid"
             ItemsSource="{Binding Path=MainDataTable.DefaultView}"
+            IsSynchronizedWithCurrentItem="True"
             AutoGenerateColumns="True"
             AlternatingRowBackground="#FFDADAFD"
             AlternationCount="2"
