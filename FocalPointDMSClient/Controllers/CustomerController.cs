@@ -2,6 +2,7 @@
 using System.Windows;
 
 using FocalPointDMSClient.Models;
+using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.Services;
 
 
@@ -10,6 +11,7 @@ namespace FocalPointDMSClient.Controllers
     class CustomerController : IDataTableProvider
     {
         DataTable DataTable;
+
         public CustomerController()
         {
             DataTable = new DataTable();
@@ -17,7 +19,7 @@ namespace FocalPointDMSClient.Controllers
         public DataTable BuildTable()
         {
             var factory = (ApiFactory) Application.Current.Properties["apiFactory"];
-            IApiServiceStrategy service = factory.GetCustomerStrategy();
+            IApiServiceStrategy service = factory.GetInstance(Models.OrmModels.EntityType.Customer);
             service.QueryAllItems();
             var customers = (Customer[]) service.GetAllItems();
 
