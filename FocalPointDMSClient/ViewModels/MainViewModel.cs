@@ -12,6 +12,7 @@ namespace FocalPointDMSClient.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand GetCustomersCommand { get; set; }
         public ICommand GetEquipmentCommand { get; set; }
+        public ICommand GetCustomerCommand { get; set; }
         public DataTable MainDataTable 
         { 
             get { return dataTable; } 
@@ -42,6 +43,7 @@ namespace FocalPointDMSClient.ViewModels
             MainDataTable = new DataTable();
             GetCustomersCommand = new GetCustomersCommand();
             GetEquipmentCommand = new GetEquipmentCommand();
+            GetCustomerCommand = new GetCustomerCommand();
             StatusTextOutput = new string("");
         }
     }
