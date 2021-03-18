@@ -1,4 +1,5 @@
 ﻿using FocalPointDMSClient.Models;
+using FocalPointDMSClient.Models.OrmModels;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -10,6 +11,7 @@ namespace FocalPointDMSClient.Services
     {
         HttpClient Client;
         Customer[] Items;
+        public EntityType EntityType => EntityType.Customer;
         public CustomerServices()
         {
             Client = new HttpClient();
