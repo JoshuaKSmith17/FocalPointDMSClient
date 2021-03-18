@@ -11,6 +11,7 @@ namespace FocalPointDMSClient.Controllers
     class CustomerController : IDataTableProvider
     {
         DataTable DataTable;
+        public EntityType EntityType => EntityType.Customer;
 
         public CustomerController()
         {
