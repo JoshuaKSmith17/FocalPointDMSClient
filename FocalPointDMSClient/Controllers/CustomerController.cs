@@ -20,7 +20,7 @@ namespace FocalPointDMSClient.Controllers
         public DataTable BuildTable()
         {
             var factory = (ApiFactory) Application.Current.Properties["apiFactory"];
-            IApiServiceStrategy service = factory.GetInstance(Models.OrmModels.EntityType.Customer);
+            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
             service.QueryAllItems();
             var customers = (Customer[]) service.GetAllItems();
 

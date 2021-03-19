@@ -17,7 +17,7 @@
             Width="130"
             Height="30"
             />
-        
+
         <Button 
             x:Name="GetEquipmentButton"
             Command="{Binding GetEquipmentCommand}"
@@ -27,11 +27,31 @@
             Width="130"
             Height="30"
             />
-        
+
         <Button 
             x:Name="RepairOrderButton"
             Content="Repair Order" 
             Margin="270,73,0,797"
+            HorizontalAlignment="Left"
+            Width="130"
+            Height="30"
+            />
+
+        <Button
+            x:Name="NewItemButton"
+            Content="New Item"
+            Command="{Binding GetCustomerCommand}"
+            Margin="1170,73,0,797"
+            HorizontalAlignment="Left"
+            Width="130"
+            Height="30"
+            />
+
+        <Button
+            x:Name="EditItemButton"
+            Content="Edit Item"
+            Command="{Binding GetCustomerCommand}"
+            Margin="1300,73,0,797"
             HorizontalAlignment="Left"
             Width="130"
             Height="30"

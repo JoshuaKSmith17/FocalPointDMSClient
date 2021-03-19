@@ -25,6 +25,7 @@ namespace FocalPointDMSClient.ViewModels
         {
             CustomerDetailViewModel viewModel = new CustomerDetailViewModel();
             CustomerDetail customerDetail = new CustomerDetail();
+            customerDetail.Show();
             //var mainViewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];
             //var factory = (ControllerFactory)Application.Current.Properties["controllerFactory"];
             //var controller = factory.GetInstance(EntityType.Customer);
