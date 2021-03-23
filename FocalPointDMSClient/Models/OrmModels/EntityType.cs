@@ -7,6 +7,9 @@ namespace FocalPointDMSClient.Models.OrmModels
     public enum EntityType
     {
         Customer,
-        Equipment
+        Equipment,
+        RepairOrder,
+        Site,
+        RepairOrderLineItem
     }
 }
