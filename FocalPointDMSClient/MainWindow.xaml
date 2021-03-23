@@ -10,7 +10,7 @@
     <Grid Height="900" Width="1440" VerticalAlignment="Top">
         <Button 
             Name="GetCustomersButton" 
-            Command="{Binding Path=GetCustomersCommand}"
+            Command="{Binding GetCustomersCommand}"
             Content="Customers" 
             Margin="10,73,0,797"
             HorizontalAlignment="Left"
@@ -66,6 +66,8 @@
         <DataGrid 
             Name="ViewDataGrid"
             ItemsSource="{Binding Path=MainDataTable.DefaultView}"
+            SelectedItem="{Binding selectedItemRow, UpdateSourceTrigger=PropertyChanged}"
+            DataGridCell.Selected="ViewDataGrid_Selected"
             IsSynchronizedWithCurrentItem="True"
             AutoGenerateColumns="True"
             AlternatingRowBackground="#FFDADAFD"
