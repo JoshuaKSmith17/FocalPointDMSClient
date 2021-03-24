@@ -6,14 +6,14 @@ using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.Services;
 
 
-namespace FocalPointDMSClient.Controllers
+namespace FocalPointDMSClient.DataTableBuilders
 {
-    class CustomerController : IDataTableProvider
+    class CustomerDataTableBuilder : IDataTableBuilder
     {
         DataTable DataTable;
         public EntityType EntityType => EntityType.Customer;
 
-        public CustomerController()
+        public CustomerDataTableBuilder()
         {
             DataTable = new DataTable();
         }
@@ -77,6 +77,16 @@ namespace FocalPointDMSClient.Controllers
             }
 
             return DataTable;
+        }
+
+        public void UpdateRecord(IDbObject item)
+        {
+            var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
+            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
+
+            service.PutItem(item);
+            //service.QueryAllItems();
+            //var customers = (Customer[])service.GetAllItems();
         }
     }
 }

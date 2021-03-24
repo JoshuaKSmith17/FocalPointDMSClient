@@ -5,13 +5,13 @@ using FocalPointDMSClient.Models;
 using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.Services;
 
-namespace FocalPointDMSClient.Controllers
+namespace FocalPointDMSClient.DataTableBuilders
 {
-    public class EquipmentController : IDataTableProvider
+    public class EquipmentDataTableBuilder : IDataTableBuilder
     {
         DataTable DataTable;
         public EntityType EntityType => EntityType.Equipment;
-        public EquipmentController()
+        public EquipmentDataTableBuilder()
         {
             this.DataTable = new DataTable();
         }

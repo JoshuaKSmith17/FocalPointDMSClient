@@ -5,9 +5,9 @@ using System.Data;
 
 using FocalPointDMSClient.Models.OrmModels;
 
-namespace FocalPointDMSClient.Controllers
+namespace FocalPointDMSClient.DataTableBuilders
 {
-    interface IDataTableProvider
+    interface IDataTableBuilder
     {
         EntityType EntityType { get; }
         DataTable BuildTable();
