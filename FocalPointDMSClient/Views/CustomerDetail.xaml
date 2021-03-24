@@ -28,7 +28,7 @@
         <TextBox 
             HorizontalAlignment="Left" 
             Margin="40,116,0,0" 
-            Text="" 
+            Text="{Binding Customer.Name}" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Width="200" Height="24"/>

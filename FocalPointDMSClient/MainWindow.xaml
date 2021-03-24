@@ -67,7 +67,6 @@
             Name="ViewDataGrid"
             ItemsSource="{Binding Path=MainDataTable.DefaultView}"
             SelectedItem="{Binding SelectedItemRow, UpdateSourceTrigger=PropertyChanged}"
-
             IsSynchronizedWithCurrentItem="True"
             AutoGenerateColumns="True"
             AlternatingRowBackground="#FFDADAFD"

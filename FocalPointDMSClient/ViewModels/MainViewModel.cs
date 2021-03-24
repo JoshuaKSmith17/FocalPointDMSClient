@@ -17,6 +17,7 @@ namespace FocalPointDMSClient.ViewModels
         public ICommand GetCustomersCommand { get; set; }
         public ICommand GetEquipmentCommand { get; set; }
         public ICommand GetCustomerCommand { get; set; }
+
         public DataTable MainDataTable 
         { 
             get { return dataTable; } 

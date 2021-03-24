@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Input;
 
-using FocalPointDMSClient.Controllers;
 using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.Views;
 
@@ -23,21 +22,17 @@ namespace FocalPointDMSClient.ViewModels
 
         public void Execute(object parameter)
         {
+            var mainViewModel = (MainViewModel) Application.Current.Properties["mainViewModel"];
+            var selectedRow = mainViewModel.SelectedItemRow;
+
             Customer customer = new Customer();
-            customer.Id = 100;
-            customer.Name = "Jordan";
+            customer.Id = (long) selectedRow["Id"];
+            customer.Name = (string) selectedRow["Name"];
 
             CustomerDetailViewModel viewModel = new CustomerDetailViewModel(customer);
             CustomerDetail customerDetail = new CustomerDetail();
             customerDetail.DataContext = viewModel;
             customerDetail.Show();
-
-            //var mainViewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];
-            //var factory = (ControllerFactory)Application.Current.Properties["controllerFactory"];
-            //var controller = factory.GetInstance(EntityType.Customer);
-            //mainViewModel.MainDataTable = controller.BuildTable();
-            //mainViewModel.StatusTextOutput += mainViewModel.MainDataTable.Rows.Count + " Customers Loaded\n";
-
         }
     }
 }
