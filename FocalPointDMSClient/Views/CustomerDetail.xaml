@@ -40,7 +40,7 @@
         <TextBox 
             HorizontalAlignment="Left" 
             Margin="40,171,0,0" 
-            Text="" 
+            Text="{Binding Customer.Address}" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Width="200" Height="24"/>
@@ -52,7 +52,7 @@
         <TextBox 
             HorizontalAlignment="Left" 
             Margin="40,228,0,0" 
-            Text="" 
+            Text="{Binding Customer.City}" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Width="200" Height="24"/>
@@ -64,7 +64,7 @@
         <TextBox 
             HorizontalAlignment="Left" 
             Margin="257,228,0,0" 
-            Text="" 
+            Text="{Binding Customer.State}" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Width="200" Height="24"/>
@@ -76,7 +76,7 @@
         <TextBox 
             HorizontalAlignment="Left" 
             Margin="475,228,0,0" 
-            Text="" 
+            Text="{Binding Customer.ZipCode}" 
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Width="200" Height="24"/>

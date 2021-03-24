@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 
-using FocalPointDMSClient.Models.OrmModels;
+using FocalPointDMSClient.Models.EntityConverters;
 using FocalPointDMSClient.Views;
 
 namespace FocalPointDMSClient.ViewModels
@@ -23,11 +23,9 @@ namespace FocalPointDMSClient.ViewModels
         public void Execute(object parameter)
         {
             var mainViewModel = (MainViewModel) Application.Current.Properties["mainViewModel"];
-            var selectedRow = mainViewModel.SelectedItemRow;
+            var customerConverter = new CustomerConverter(mainViewModel.SelectedItemRow);
 
-            Customer customer = new Customer();
-            customer.Id = (long) selectedRow["Id"];
-            customer.Name = (string) selectedRow["Name"];
+            var customer = customerConverter.Convert();
 
             CustomerDetailViewModel viewModel = new CustomerDetailViewModel(customer);
             CustomerDetail customerDetail = new CustomerDetail();
