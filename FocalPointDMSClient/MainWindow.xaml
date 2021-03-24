@@ -66,8 +66,8 @@
         <DataGrid 
             Name="ViewDataGrid"
             ItemsSource="{Binding Path=MainDataTable.DefaultView}"
-            SelectedItem="{Binding selectedItemRow, UpdateSourceTrigger=PropertyChanged}"
-            DataGridCell.Selected="ViewDataGrid_Selected"
+            SelectedItem="{Binding SelectedItemRow, UpdateSourceTrigger=PropertyChanged}"
+
             IsSynchronizedWithCurrentItem="True"
             AutoGenerateColumns="True"
             AlternatingRowBackground="#FFDADAFD"

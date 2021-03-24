@@ -11,7 +11,7 @@ namespace FocalPointDMSClient.ViewModels
     {
         private DataTable dataTable;
         private string statusTextOutput;
-        private int selectedItemRow;
+        private DataRowView selectedItemRow;
         public event PropertyChangedEventHandler PropertyChanged;
         public EntityType EntityType { get; set; }
         public ICommand GetCustomersCommand { get; set; }
@@ -37,7 +37,7 @@ namespace FocalPointDMSClient.ViewModels
             }
         }
 
-        public int SelectedItemRow
+        public DataRowView SelectedItemRow
         {
             get { return selectedItemRow; }
             set
@@ -46,7 +46,7 @@ namespace FocalPointDMSClient.ViewModels
                 {
                     selectedItemRow = value;
                     OnPropertyChanged();
-                    StatusTextOutput += MainDataTable.Rows[value][1].ToString() + "\n";
+                    StatusTextOutput += selectedItemRow.Row["Name"] + "\n";
                 }
             }
         }
