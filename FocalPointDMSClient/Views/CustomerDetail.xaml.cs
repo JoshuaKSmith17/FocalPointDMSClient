@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using FocalPointDMSClient.ViewModels;
+
 namespace FocalPointDMSClient.Views
 {
     /// <summary>
@@ -17,9 +19,14 @@ namespace FocalPointDMSClient.Views
     /// </summary>
     public partial class CustomerDetail : Window
     {
-        public CustomerDetail()
+        public CustomerDetail(CustomerDetailViewModel viewModel)
         {
             InitializeComponent();
+            this.DataContext = viewModel;
+            if (viewModel.CloseAction == null)
+            {
+                viewModel.CloseAction = new Action(this.Close);
+            }
         }
     }
 }

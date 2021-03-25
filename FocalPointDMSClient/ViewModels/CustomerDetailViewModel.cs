@@ -1,15 +1,19 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Windows.Input;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 using FocalPointDMSClient.Models.OrmModels;
 
+
 namespace FocalPointDMSClient.ViewModels
 {
-    class CustomerDetailViewModel : INotifyPropertyChanged
+    public class CustomerDetailViewModel : INotifyPropertyChanged
     {
         private Customer customer;
+        public Action CloseAction { get; set; }
+        public ICommand UpdateCustomerCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -31,6 +35,7 @@ namespace FocalPointDMSClient.ViewModels
         public CustomerDetailViewModel(Customer customer)
         {
             this.Customer = customer;
+            UpdateCustomerCommand = new UpdateCustomerCommand();
         }
     }
 }

@@ -26,9 +26,14 @@ namespace FocalPointDMSClient.Services
             Items = await responseTask.Result.Content.ReadAsAsync<Equipment[]>();
         }
 
-        public IDbObject[] GetAllItems()
+        public DbObject[] GetAllItems()
         {
             return Items;
+        }
+
+        public void PutItem(DbObject item)
+        {
+
         }
     }
 }

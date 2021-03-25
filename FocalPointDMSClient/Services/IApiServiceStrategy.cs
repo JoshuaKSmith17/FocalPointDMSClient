@@ -10,6 +10,8 @@ namespace FocalPointDMSClient.Services
     {
         EntityType EntityType { get; }
         public void QueryAllItems();
-        public IDbObject[] GetAllItems();
+        public DbObject[] GetAllItems();
+
+        public void PutItem(DbObject item);
     }
 }

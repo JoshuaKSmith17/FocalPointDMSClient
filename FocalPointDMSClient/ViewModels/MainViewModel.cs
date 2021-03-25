@@ -47,7 +47,7 @@ namespace FocalPointDMSClient.ViewModels
                 {
                     selectedItemRow = value;
                     OnPropertyChanged();
-                    StatusTextOutput += selectedItemRow.Row["Name"] + "\n";
+                    //StatusTextOutput += selectedItemRow.Row["Name"] + "\n";
                 }
             }
         }

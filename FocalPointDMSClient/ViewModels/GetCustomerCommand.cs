@@ -28,8 +28,7 @@ namespace FocalPointDMSClient.ViewModels
             var customer = customerConverter.Convert();
 
             CustomerDetailViewModel viewModel = new CustomerDetailViewModel(customer);
-            CustomerDetail customerDetail = new CustomerDetail();
-            customerDetail.DataContext = viewModel;
+            CustomerDetail customerDetail = new CustomerDetail(viewModel);
             customerDetail.Show();
         }
     }

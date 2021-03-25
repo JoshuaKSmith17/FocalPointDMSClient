@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FocalPointDMSClient.Views"
         mc:Ignorable="d"
-        Title="CustomerDetail" Height="720" Width="1280">
+        Title="CustomerDetail" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight">
     <Grid>
         <Label 
             Content="ID" 
@@ -16,6 +16,7 @@
             HorizontalAlignment="Left" 
             Margin="40,61,0,0" 
             Text="{Binding Customer.Id}" 
+            IsReadOnly="True"
             TextWrapping="Wrap" 
             VerticalAlignment="Top" 
             Width="200" Height="24"/>
@@ -81,22 +82,24 @@
             VerticalAlignment="Top" 
             Width="200" Height="24"
             />
-        
+
         <DataGrid Margin="10,323,654,50"/>
-        
+
         <DataGrid Margin="654,323,10,50"/>
-        
+
         <Button 
             Content="Cancel" 
-            HorizontalAlignment="Left" 
-            Margin="1230,672,0,0" 
+
+            Margin="1191,632,19,0" 
             VerticalAlignment="Top"
             />
 
         <Button 
-            Content="Update" 
-            HorizontalAlignment="Left" 
-            Margin="1167,672,0,0" 
+            Content="Update"
+            Command="{Binding UpdateCustomerCommand}"
+            CommandParameter="{Binding Customer}"
+            
+            Margin="1073,632,78,0" 
             VerticalAlignment="Top"/>
 
 
