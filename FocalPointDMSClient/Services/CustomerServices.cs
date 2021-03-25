@@ -28,7 +28,7 @@ namespace FocalPointDMSClient.Services
             
         }
 
-        public async void PutItem(IDbObject item)
+        public async void PutItem(DbObject item)
         {
             Client.BaseAddress = new Uri("https://localhost:44345/api/");
 
@@ -37,10 +37,10 @@ namespace FocalPointDMSClient.Services
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var responseTask = await Client.PostAsync("Customer", byteContent);
+            var responseTask = await Client.PutAsync("Customers/" + item.Id, byteContent);
         }
 
-        public IDbObject[] GetAllItems()
+        public DbObject[] GetAllItems()
         {
             return Items;
         }
