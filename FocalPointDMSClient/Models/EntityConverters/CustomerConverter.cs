@@ -24,7 +24,7 @@ namespace FocalPointDMSClient.Models.EntityConverters
             customer.Name = (string)DataRow["Name"];
             customer.Address = (string)DataRow["Address"];
             customer.City = (string)DataRow["City"];
-            customer.State = (string)DataRow["City"];
+            customer.State = (string)DataRow["State"];
             customer.ZipCode = (int)DataRow["Zip Code"];
 
             return customer;
