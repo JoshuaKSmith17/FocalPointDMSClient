@@ -5,7 +5,7 @@ using System.Linq;
 
 using FocalPointDMSClient.Models.OrmModels;
 
-namespace FocalPointDMSClient.DataTableBuilders
+namespace FocalPointDMSClient.Models.DataTableBuilders
 {
     class DataTableBuilderFactory
     {

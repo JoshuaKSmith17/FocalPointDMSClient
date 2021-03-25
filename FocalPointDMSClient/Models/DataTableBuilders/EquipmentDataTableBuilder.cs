@@ -5,7 +5,7 @@ using FocalPointDMSClient.Models;
 using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.Services;
 
-namespace FocalPointDMSClient.DataTableBuilders
+namespace FocalPointDMSClient.Models.DataTableBuilders
 {
     public class EquipmentDataTableBuilder : IDataTableBuilder
     {

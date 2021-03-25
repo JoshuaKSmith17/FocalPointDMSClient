@@ -1,12 +1,11 @@
 ﻿using System.Data;
 using System.Windows;
 
-using FocalPointDMSClient.Models;
 using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.Services;
 
 
-namespace FocalPointDMSClient.DataTableBuilders
+namespace FocalPointDMSClient.Models.DataTableBuilders
 {
     class CustomerDataTableBuilder : IDataTableBuilder
     {
@@ -79,14 +78,6 @@ namespace FocalPointDMSClient.DataTableBuilders
             return DataTable;
         }
 
-        public void UpdateRecord(IDbObject item)
-        {
-            var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
-            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
 
-            service.PutItem(item);
-            //service.QueryAllItems();
-            //var customers = (Customer[])service.GetAllItems();
-        }
     }
 }

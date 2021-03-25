@@ -5,7 +5,7 @@ using System.Data;
 
 using FocalPointDMSClient.Models.OrmModels;
 
-namespace FocalPointDMSClient.DataTableBuilders
+namespace FocalPointDMSClient.Models.DataTableBuilders
 {
     interface IDataTableBuilder
     {
