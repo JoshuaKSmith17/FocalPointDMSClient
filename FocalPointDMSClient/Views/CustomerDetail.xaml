@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:FocalPointDMSClient.Views"
         mc:Ignorable="d"
         Title="CustomerDetail" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight">
@@ -91,8 +92,18 @@
             Content="Cancel" 
 
             Margin="1191,632,19,0" 
-            VerticalAlignment="Top"
-            />
+            VerticalAlignment="Top" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:CallMethodAction MethodName="Close"
+                                        TargetObject="{Binding RelativeSource=
+                                                        {RelativeSource
+                                                        Mode=FindAncestor,
+                                                        AncestorType=Window}}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
+
 
         <Button 
             Content="Update"
