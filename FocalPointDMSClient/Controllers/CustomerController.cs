@@ -22,7 +22,7 @@ namespace FocalPointDMSClient.Controllers
             return dataTable;
         }
 
-        public void UpdateRecord(IDbObject item)
+        public void UpdateRecord(DbObject item)
         {
             var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
             IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
