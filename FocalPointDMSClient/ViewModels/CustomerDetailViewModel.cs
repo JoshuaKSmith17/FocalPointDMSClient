@@ -12,7 +12,6 @@ namespace FocalPointDMSClient.ViewModels
     public class CustomerDetailViewModel : INotifyPropertyChanged
     {
         private Customer customer;
-        public Action CloseAction { get; set; }
         public ICommand UpdateCustomerCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
