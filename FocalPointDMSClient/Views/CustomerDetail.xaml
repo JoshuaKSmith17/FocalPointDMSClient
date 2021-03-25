@@ -84,22 +84,29 @@
             Width="200" Height="24"
             />
 
-        <DataGrid Margin="10,323,654,50"/>
+        <DataGrid 
+            Margin="10,317,0,56"
+            HorizontalAlignment="Left"
+            Width="600"/>
 
-        <DataGrid Margin="654,323,10,50"/>
+        <DataGrid 
+            Margin="654,317,10,56"
+            HorizontalAlignment="Right"
+            Width="600"/>
 
         <Button 
-            Content="Cancel" 
-
-            Margin="1191,632,19,0" 
-            VerticalAlignment="Top" >
+            Content="Close"
+            Width="50"
+            Margin="1200,622,10,30" 
+            VerticalAlignment="Bottom" >
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <i:CallMethodAction MethodName="Close"
-                                        TargetObject="{Binding RelativeSource=
-                                                        {RelativeSource
-                                                        Mode=FindAncestor,
-                                                        AncestorType=Window}}"/>
+                    <i:CallMethodAction 
+                        MethodName="Close"
+                        TargetObject="{Binding RelativeSource=
+                                                {RelativeSource
+                                                Mode=FindAncestor,
+                                                AncestorType=Window}}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
@@ -109,20 +116,26 @@
             Content="Update"
             Command="{Binding UpdateCustomerCommand}"
             CommandParameter="{Binding Customer}"
-            
-            Margin="1073,632,78,0" 
-            VerticalAlignment="Top">
-            
+            Width="50"
+            Margin="1145,622,65,30" 
+            VerticalAlignment="Bottom">
+
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
-                    <i:CallMethodAction MethodName="Close"
-                                        TargetObject="{Binding RelativeSource=
-                                                        {RelativeSource
-                                                        Mode=FindAncestor,
-                                                        AncestorType=Window}}"/>
+                    <i:CallMethodAction 
+                        MethodName="Close"
+                        TargetObject="{Binding RelativeSource=
+                                                {RelativeSource
+                                                Mode=FindAncestor,
+                                                AncestorType=Window}}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
         </Button>
+        <Label Content="" 
+               HorizontalAlignment="Left" 
+               Margin="20,642,0,0" 
+               VerticalAlignment="Top" 
+               Width="1240"/>
 
 
     </Grid>
