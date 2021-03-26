@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FocalPointDMSClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight">
+        Title="FocalPointDMS" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight">
 
     <Grid MinHeight="900" MinWidth="1440" VerticalAlignment="Top">
         
