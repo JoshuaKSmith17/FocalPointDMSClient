@@ -7,55 +7,60 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="Auto" Width="Auto" SizeToContent="WidthAndHeight">
 
-    <Grid Height="900" Width="1440" VerticalAlignment="Top">
-        <Button 
+    <Grid MinHeight="900" MinWidth="1440" VerticalAlignment="Top">
+        
+        <Grid Style="{StaticResource CommandPane}" Margin="10,73,10,797" Width="Auto" Height="30">
+            <Button 
             Name="GetCustomersButton" 
             Command="{Binding GetCustomersCommand}"
             Content="Customers" 
-            Margin="10,73,0,797"
+            Margin="0,0,0,0"
             HorizontalAlignment="Left"
             Width="130"
             Height="30"
             />
 
-        <Button 
+            <Button 
             x:Name="GetEquipmentButton"
             Command="{Binding GetEquipmentCommand}"
             Content="Equipment"
-            Margin="140,73,0,797"
+            Margin="130,0,0,0"
             HorizontalAlignment="Left"
             Width="130"
             Height="30"
             />
 
-        <Button 
+            <Button 
             x:Name="RepairOrderButton"
             Content="Repair Order" 
-            Margin="270,73,0,797"
+            Margin="260,0,0,0"
             HorizontalAlignment="Left"
             Width="130"
             Height="30"
             />
 
-        <Button
+            <Button
             x:Name="NewItemButton"
             Content="New Item"
             Command="{Binding GetCustomerCommand}"
-            Margin="1170,73,0,797"
-            HorizontalAlignment="Left"
+            Margin="0,0,130,0"
+            HorizontalAlignment="Right"
             Width="130"
             Height="30"
             />
 
-        <Button
+            <Button
             x:Name="EditItemButton"
             Content="Edit Item"
             Command="{Binding GetCustomerCommand}"
-            Margin="1300,73,0,797"
-            HorizontalAlignment="Left"
+            Margin="0,0,0,0"
+            HorizontalAlignment="Right"
             Width="130"
             Height="30"
             />
+        </Grid>
+
+
 
         <TextBox 
             Name="TestBox" 
@@ -63,7 +68,9 @@
             TextWrapping="Wrap" Margin="10,759,10,10"
             />
 
-        <DataGrid 
+        <Grid Margin="0,108,0,150" Width="Auto" Height="640">
+
+            <DataGrid 
             Name="ViewDataGrid"
             ItemsSource="{Binding Path=MainDataTable.DefaultView}"
             SelectedItem="{Binding SelectedItemRow, UpdateSourceTrigger=PropertyChanged}"
@@ -71,11 +78,11 @@
             AutoGenerateColumns="True"
             AlternatingRowBackground="#FFDADAFD"
             AlternationCount="2"
-            Margin="0,103,0,146" 
+            Margin="0,0,0,0" 
             HorizontalAlignment="Center" 
             Width="1420"
             >
-        </DataGrid>
-
+            </DataGrid>
+        </Grid>
     </Grid>
 </Window>
