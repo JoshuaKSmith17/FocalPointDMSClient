@@ -87,6 +87,7 @@
                 MinColumnWidth="50"
                 MaxColumnWidth="150"
                 IsSynchronizedWithCurrentItem="True"
+                AlternationCount="2"
                 AutoGenerateColumns="True"
                 Margin="0,0,0,0" 
                 HorizontalAlignment="Center" 
