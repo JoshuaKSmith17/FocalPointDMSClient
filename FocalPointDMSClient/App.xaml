@@ -73,5 +73,14 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <Style TargetType="DataGridCell">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#545459"/>
+                    <Setter Property="BorderBrush" Value="#545459"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>
