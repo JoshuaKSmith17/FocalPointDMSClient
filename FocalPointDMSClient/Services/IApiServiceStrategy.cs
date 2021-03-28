@@ -13,5 +13,7 @@ namespace FocalPointDMSClient.Services
         public DbObject[] GetAllItems();
 
         public void PutItem(DbObject item);
+        public void CreateItem(DbObject item);
+        public void DeleteItem(DbObject item);
     }
 }

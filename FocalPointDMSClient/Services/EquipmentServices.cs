@@ -35,5 +35,15 @@ namespace FocalPointDMSClient.Services
         {
 
         }
+
+        public void CreateItem(DbObject item)
+        {
+
+        }
+
+        public void DeleteItem(DbObject item)
+        {
+
+        }
     }
 }
