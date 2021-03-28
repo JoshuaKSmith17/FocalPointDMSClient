@@ -71,16 +71,18 @@
         <Grid Margin="0,108,0,150" Width="Auto" Height="640">
 
             <DataGrid 
-            Name="ViewDataGrid"
-            ItemsSource="{Binding Path=MainDataTable.DefaultView}"
-            SelectedItem="{Binding SelectedItemRow, UpdateSourceTrigger=PropertyChanged}"
-            IsSynchronizedWithCurrentItem="True"
-            AutoGenerateColumns="True"
-            AlternatingRowBackground="#FFDADAFD"
-            AlternationCount="2"
-            Margin="0,0,0,0" 
-            HorizontalAlignment="Center" 
-            Width="1420"
+                Name="ViewDataGrid"
+                ItemsSource="{Binding Path=MainDataTable.DefaultView}"
+                SelectedItem="{Binding SelectedItemRow, UpdateSourceTrigger=PropertyChanged}"
+                MinColumnWidth="50"
+                MaxColumnWidth="150"
+                IsSynchronizedWithCurrentItem="True"
+                AutoGenerateColumns="True"
+                AlternatingRowBackground="#FFDADAFD"
+                AlternationCount="2"
+                Margin="0,0,0,0" 
+                HorizontalAlignment="Center" 
+                Width="1420"
             >
             </DataGrid>
         </Grid>

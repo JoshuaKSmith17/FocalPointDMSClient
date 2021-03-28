@@ -4,10 +4,11 @@ using System.Windows.Input;
 
 using FocalPointDMSClient.Models.DataTableBuilders;
 using FocalPointDMSClient.Models.OrmModels;
+using FocalPointDMSClient.ViewModels.MainView;
 
 namespace FocalPointDMSClient.ViewModels
 {
-    class GetEquipmentCommand : ICommand
+    public class GetCustomersCommand : ICommand
     {
         public bool CanExecute(object parameter)
         {
@@ -24,10 +25,9 @@ namespace FocalPointDMSClient.ViewModels
         {
             var mainViewModel = (MainViewModel) Application.Current.Properties["mainViewModel"];
             var factory = (DataTableBuilderFactory) Application.Current.Properties["DataTableBuilderFactory"];
-            IDataTableBuilder controller = factory.GetInstance(EntityType.Equipment);
+            var controller = factory.GetInstance(EntityType.Customer);
             mainViewModel.MainDataTable = controller.BuildTable();
-            mainViewModel.StatusTextOutput += mainViewModel.MainDataTable.Rows.Count + " Equipment Items Loaded\n";
-
+            mainViewModel.StatusTextOutput += mainViewModel.MainDataTable.Rows.Count + " Customers Loaded\n";
         }
     }
 }

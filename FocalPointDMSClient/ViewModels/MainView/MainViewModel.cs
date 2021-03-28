@@ -5,9 +5,9 @@ using System.Runtime.CompilerServices;
 
 using FocalPointDMSClient.Models.OrmModels;
 
-namespace FocalPointDMSClient.ViewModels
+namespace FocalPointDMSClient.ViewModels.MainView
 {
-    class MainViewModel : INotifyPropertyChanged    
+    class MainViewModel : INotifyPropertyChanged
     {
         private DataTable dataTable;
         private string statusTextOutput;
@@ -18,9 +18,9 @@ namespace FocalPointDMSClient.ViewModels
         public ICommand GetEquipmentCommand { get; set; }
         public ICommand GetCustomerCommand { get; set; }
 
-        public DataTable MainDataTable 
-        { 
-            get { return dataTable; } 
+        public DataTable MainDataTable
+        {
+            get { return dataTable; }
             set
             {
                 dataTable = value;

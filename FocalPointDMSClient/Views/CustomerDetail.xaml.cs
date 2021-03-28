@@ -9,8 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
-using FocalPointDMSClient.ViewModels;
+using FocalPointDMSClient.ViewModels.CustomerDetailViewModel;
 
 namespace FocalPointDMSClient.Views
 {
@@ -19,7 +18,7 @@ namespace FocalPointDMSClient.Views
     /// </summary>
     public partial class CustomerDetail : Window
     {
-        public CustomerDetail(CustomerDetailViewModel viewModel)
+        public CustomerDetail(CustomerDetailVm viewModel)
         {
             InitializeComponent();
             this.DataContext = viewModel;            

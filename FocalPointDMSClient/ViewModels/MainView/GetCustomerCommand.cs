@@ -3,9 +3,10 @@ using System.Windows;
 using System.Windows.Input;
 
 using FocalPointDMSClient.Models.EntityConverters;
+using FocalPointDMSClient.ViewModels.CustomerDetailViewModel;
 using FocalPointDMSClient.Views;
 
-namespace FocalPointDMSClient.ViewModels
+namespace FocalPointDMSClient.ViewModels.MainView
 {
     class GetCustomerCommand : ICommand
     {
@@ -22,12 +23,12 @@ namespace FocalPointDMSClient.ViewModels
 
         public void Execute(object parameter)
         {
-            var mainViewModel = (MainViewModel) Application.Current.Properties["mainViewModel"];
+            var mainViewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];
             var customerConverter = new CustomerConverter(mainViewModel.SelectedItemRow);
 
             var customer = customerConverter.Convert();
 
-            CustomerDetailViewModel viewModel = new CustomerDetailViewModel(customer);
+            CustomerDetailVm viewModel = new CustomerDetailVm(customer);
             CustomerDetail customerDetail = new CustomerDetail(viewModel);
             customerDetail.Show();
         }
