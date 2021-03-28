@@ -4,9 +4,9 @@ with the server for all entities that will be contained within the database.  Th
 focused on off-highway equipment.
 
 Screenshot of what the main window currently looks like.
-![Screenshot](https://user-images.githubusercontent.com/6564055/111844420-03e7d700-88d1-11eb-922e-3fe2998077e8.png)
+![FPDMS UI Example](https://user-images.githubusercontent.com/6564055/112770542-b5cb8580-8fec-11eb-9ef6-2beef017b793.png)
 
 The current goal is to have the ability to accururately display every database entity within this screen.  Additional GUI elements will be built that 
 focus on managing an individual record or adding new records.
 
-This project is still in the early stage.  Currently, there is read implementations for both customers and equipment.  Current short term goal is to hash out create, update, and delete functionality for these two entities, then expand it to include other entities. 
+This project is still in the early stage.  Currently, there are full CRUD implementations for only Customer Entities.  Current short term goal expand this functionality to other entities while expanding the entities the program handles.
