@@ -29,5 +29,21 @@ namespace FocalPointDMSClient.Controllers
 
             service.PutItem(item);
         }
+
+        public void CreateRecord(DbObject item)
+        {
+            var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
+            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
+
+            service.CreateItem(item);
+        }
+
+        public void DeleteRecord(DbObject item)
+        {
+            var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
+            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
+
+            service.DeleteItem(item);
+        }
     }
 }

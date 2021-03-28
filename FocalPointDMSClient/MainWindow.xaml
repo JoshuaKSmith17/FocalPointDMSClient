@@ -40,9 +40,19 @@
             />
 
             <Button
+            x:Name="DeleteItemButton"
+            Content="Delete Item"
+            Command="{Binding DeleteCustomerCommand}"
+            Margin="0,0,260,0"
+            HorizontalAlignment="Right"
+            Width="130"
+            Height="30"
+            />
+
+            <Button
             x:Name="NewItemButton"
             Content="New Item"
-            Command="{Binding GetCustomerCommand}"
+            Command="{Binding NewCustomerCommand}"
             Margin="0,0,130,0"
             HorizontalAlignment="Right"
             Width="130"

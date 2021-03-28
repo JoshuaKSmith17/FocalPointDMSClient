@@ -113,7 +113,7 @@
 
 
         <Button 
-            Content="Update"
+            Content="{Binding ActionButtonText}"
             Command="{Binding UpdateCustomerCommand}"
             CommandParameter="{Binding Customer}"
             Width="50"

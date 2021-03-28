@@ -10,6 +10,7 @@ namespace FocalPointDMSClient.ViewModels.CustomerDetailViewModel
     public class CustomerDetailVm : INotifyPropertyChanged
     {
         private Customer customer;
+        private string actionButtonText;
         public ICommand UpdateCustomerCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -24,6 +25,16 @@ namespace FocalPointDMSClient.ViewModels.CustomerDetailViewModel
             }
         }
 
+        public string ActionButtonText
+        {
+            get { return actionButtonText; }
+            set
+            {
+                actionButtonText = value;
+                OnPropertyChanged();
+            }
+        }
+
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -32,7 +43,17 @@ namespace FocalPointDMSClient.ViewModels.CustomerDetailViewModel
         public CustomerDetailVm(Customer customer)
         {
             Customer = customer;
-            UpdateCustomerCommand = new UpdateCustomerCommand();
+            if (Customer.Id == 0)
+            {
+                UpdateCustomerCommand = new CreateCustomerCommand();
+                actionButtonText = "Create";
+            }
+            else
+            {
+                UpdateCustomerCommand = new UpdateCustomerCommand();
+                actionButtonText = "Update";
+            }
+            
         }
     }
 }
