@@ -16,9 +16,9 @@ namespace FocalPointDMSClient.ViewModels.MainView
         public EntityType EntityType { get; set; }
         public ICommand GetCustomersCommand { get; set; }
         public ICommand GetEquipmentCommand { get; set; }
-        public ICommand GetCustomerCommand { get; set; }
-        public ICommand DeleteCustomerCommand { get; set; }
-        public ICommand NewCustomerCommand { get; set; }
+        public ICommand RecordDetailCommand { get; set; }
+        public ICommand RecordDeleteCommand { get; set; }
+        public ICommand RecordAddCommand { get; set; }
 
         public DataTable MainDataTable
         {
@@ -64,9 +64,9 @@ namespace FocalPointDMSClient.ViewModels.MainView
             MainDataTable = new DataTable();
             GetCustomersCommand = new GetCustomersCommand();
             GetEquipmentCommand = new GetEquipmentCommand();
-            GetCustomerCommand = new GetCustomerCommand();
-            DeleteCustomerCommand = new DeleteCustomerCommand();
-            NewCustomerCommand = new NewCustomerCommand();
+            RecordDetailCommand = new GetCustomerCommand();
+            RecordDeleteCommand = new DeleteCustomerCommand();
+            RecordAddCommand = new NewCustomerCommand();
             StatusTextOutput = new string("");
             EntityType = EntityType.Customer;
         }
