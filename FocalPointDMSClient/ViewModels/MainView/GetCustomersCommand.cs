@@ -5,9 +5,9 @@ using System.Windows.Input;
 using FocalPointDMSClient.Models.DataTableBuilders;
 using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.ViewModels.MainView;
-using FocalPointDMSClient.Controllers;
+using FocalPointDMSClient.ViewModels.MainView.CustomerVm;
 
-namespace FocalPointDMSClient.ViewModels
+namespace FocalPointDMSClient.ViewModels.MainView
 {
     public class GetCustomersCommand : ICommand
     {
@@ -24,7 +24,9 @@ namespace FocalPointDMSClient.ViewModels
 
         public void Execute(object parameter)
         {
-            var mainViewModel = (MainViewModel) Application.Current.Properties["mainViewModel"];
+            var mainViewModel = new CustomerMainViewModel();
+            Application.Current.Properties["mainViewModel"] =  mainViewModel;
+
             var factory = (DataTableBuilderFactory) Application.Current.Properties["DataTableBuilderFactory"];
             var controller = new CustomerController();
             mainViewModel.MainDataTable = controller.BuildTable();

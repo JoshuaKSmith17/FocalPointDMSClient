@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
+using FocalPointDMSClient.Controllers;
 using FocalPointDMSClient.Models.EntityConverters;
-using FocalPointDMSClient.ViewModels.CustomerDetailViewModel;
-using FocalPointDMSClient.Views;
 
-namespace FocalPointDMSClient.ViewModels.MainView
+namespace FocalPointDMSClient.ViewModels.MainView.CustomerVm
 {
-    class GetCustomerCommand : ICommand
+    class DeleteCustomerCommand : ICommand
     {
         public bool CanExecute(object parameter)
         {
@@ -28,9 +29,8 @@ namespace FocalPointDMSClient.ViewModels.MainView
 
             var customer = customerConverter.Convert();
 
-            CustomerDetailVm viewModel = new CustomerDetailVm(customer);
-            CustomerDetail customerDetail = new CustomerDetail(viewModel);
-            customerDetail.Show();
+            CustomerController controller = new CustomerController();
+            controller.DeleteRecord(customer);
         }
     }
 }
