@@ -7,10 +7,10 @@ using FocalPointDMSClient.Models.OrmModels;
 
 namespace FocalPointDMSClient.ViewModels.MainView
 {
-    class MainViewModel : INotifyPropertyChanged
+    abstract class MainViewModel : INotifyPropertyChanged
     {
         private DataTable dataTable;
-        private string statusTextOutput;
+        private static string statusTextOutput;
         private DataRowView selectedItemRow;
         public event PropertyChangedEventHandler PropertyChanged;
         public EntityType EntityType { get; set; }
@@ -49,7 +49,6 @@ namespace FocalPointDMSClient.ViewModels.MainView
                 {
                     selectedItemRow = value;
                     OnPropertyChanged();
-                    //StatusTextOutput += selectedItemRow.Row["Name"] + "\n";
                 }
             }
         }
@@ -64,11 +63,7 @@ namespace FocalPointDMSClient.ViewModels.MainView
             MainDataTable = new DataTable();
             GetCustomersCommand = new GetCustomersCommand();
             GetEquipmentCommand = new GetEquipmentCommand();
-            RecordDetailCommand = new GetCustomerCommand();
-            RecordDeleteCommand = new DeleteCustomerCommand();
-            RecordAddCommand = new NewCustomerCommand();
             StatusTextOutput = new string("");
-            EntityType = EntityType.Customer;
         }
 
     }
