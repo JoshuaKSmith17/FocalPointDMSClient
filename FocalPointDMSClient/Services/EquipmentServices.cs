@@ -7,7 +7,7 @@ using System.Text;
 
 namespace FocalPointDMSClient.Services
 {
-    class EquipmentServices : IApiServiceStrategy
+    class EquipmentServices
     {
         HttpClient Client;
         Equipment[] Items;
