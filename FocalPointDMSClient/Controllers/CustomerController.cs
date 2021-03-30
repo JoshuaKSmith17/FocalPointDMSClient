@@ -15,10 +15,15 @@ namespace FocalPointDMSClient.Controllers
     {
         public DataTable BuildTable()
         {
-            var factory = (DataTableBuilderFactory)Application.Current.Properties["DataTableBuilderFactory"];
-            var tableBuilder = factory.GetInstance(EntityType.Customer);
+            var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
+            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
+            service.QueryAllItems();
+            DbObject[] customers = service.GetAllItems();
 
-            var dataTable = tableBuilder.BuildTable();
+            var dataTableFactory = (DataTableBuilderFactory)Application.Current.Properties["DataTableBuilderFactory"];
+            var tableBuilder = dataTableFactory.GetInstance(EntityType.Customer);
+
+            var dataTable = tableBuilder.BuildTable(customers);
             return dataTable;
         }
 
