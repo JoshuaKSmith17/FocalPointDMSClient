@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace FocalPointDMSClient.Services
 {
-    class CustomerServices : IApiServiceStrategy
+    public class CustomerServices : IApiServiceStrategy
     {
         HttpClient Client;
         Customer[] Items;
