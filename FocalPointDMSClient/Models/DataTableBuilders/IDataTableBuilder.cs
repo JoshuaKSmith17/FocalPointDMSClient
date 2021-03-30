@@ -10,6 +10,6 @@ namespace FocalPointDMSClient.Models.DataTableBuilders
     interface IDataTableBuilder
     {
         EntityType EntityType { get; }
-        DataTable BuildTable();
+        DataTable BuildTable(DbObject[] items);
     }
 }

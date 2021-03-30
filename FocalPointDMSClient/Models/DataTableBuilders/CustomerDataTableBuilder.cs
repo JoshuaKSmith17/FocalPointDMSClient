@@ -7,7 +7,7 @@ using FocalPointDMSClient.Services;
 
 namespace FocalPointDMSClient.Models.DataTableBuilders
 {
-    class CustomerDataTableBuilder : IDataTableBuilder
+    public class CustomerDataTableBuilder : IDataTableBuilder
     {
         DataTable DataTable;
         public EntityType EntityType => EntityType.Customer;
