@@ -6,10 +6,11 @@ using System.Net.Http;
 using System.Text;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace FocalPointDMSClient.Services
 {
-    class CustomerServices : IApiServiceStrategy
+    public class CustomerServices : IApiServiceStrategy
     {
         HttpClient Client;
         Customer[] Items;
@@ -18,13 +19,15 @@ namespace FocalPointDMSClient.Services
         {
             Client = new HttpClient();
         }
-        public async void QueryAllItems()
+        public async Task<DbObject[]> QueryAllItems()
         {
             Client.BaseAddress = new Uri("https://localhost:44345/api/");
 
             var responseTask = Client.GetAsync("Customers");
             responseTask.Wait();
             Items = await responseTask.Result.Content.ReadAsAsync<Customer[]>();
+
+            return Items;
             
         }
 
