@@ -15,12 +15,14 @@ namespace FocalPointDMSClient.Models.DataTableBuilders
         {
             this.DataTable = new DataTable();
         }
-        public DataTable BuildTable()
+        public DataTable BuildTable(DbObject[] items)
         {
+            
+
             var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
             IApiServiceStrategy service = factory.GetInstance(EntityType.Equipment);
             service.QueryAllItems();
-            var items = (Equipment[])service.GetAllItems();
+            var equipmentItems = (Equipment[])service.GetAllItems();
 
             DataColumn dataColumn;
             DataRow dataRow;
@@ -49,7 +51,7 @@ namespace FocalPointDMSClient.Models.DataTableBuilders
             dataColumn.ReadOnly = true;
             DataTable.Columns.Add(dataColumn);
 
-            foreach (var equipment in items)
+            foreach (var equipment in equipmentItems)
             {
                 dataRow = DataTable.NewRow();
                 dataRow["id"] = equipment.Id;

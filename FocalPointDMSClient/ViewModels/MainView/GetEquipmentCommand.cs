@@ -26,7 +26,7 @@ namespace FocalPointDMSClient.ViewModels
             var mainViewModel = (MainViewModel) Application.Current.Properties["mainViewModel"];
             var factory = (DataTableBuilderFactory) Application.Current.Properties["DataTableBuilderFactory"];
             IDataTableBuilder controller = factory.GetInstance(EntityType.Equipment);
-            mainViewModel.MainDataTable = controller.BuildTable();
+            //mainViewModel.MainDataTable = controller.BuildTable();
             mainViewModel.StatusTextOutput += mainViewModel.MainDataTable.Rows.Count + " Equipment Items Loaded\n";
 
         }
