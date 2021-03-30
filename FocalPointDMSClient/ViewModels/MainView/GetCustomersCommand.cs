@@ -6,6 +6,7 @@ using FocalPointDMSClient.Models.DataTableBuilders;
 using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.ViewModels.MainView;
 using FocalPointDMSClient.ViewModels.MainView.CustomerVm;
+using FocalPointDMSClient.Controllers;
 
 namespace FocalPointDMSClient.ViewModels.MainView
 {
