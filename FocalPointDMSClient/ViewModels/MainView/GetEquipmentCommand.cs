@@ -6,7 +6,7 @@ using FocalPointDMSClient.Models.DataTableBuilders;
 using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.ViewModels.MainView;
 
-namespace FocalPointDMSClient.ViewModels
+namespace FocalPointDMSClient.ViewModels.MainView
 {
     class GetEquipmentCommand : ICommand
     {
