@@ -7,7 +7,7 @@ using FocalPointDMSClient.Services;
 
 namespace FocalPointDMSClient.Models.DataTableBuilders
 {
-    class CustomerDataTableBuilder : IDataTableBuilder
+    public class CustomerDataTableBuilder : IDataTableBuilder
     {
         DataTable DataTable;
         public EntityType EntityType => EntityType.Customer;
@@ -16,13 +16,9 @@ namespace FocalPointDMSClient.Models.DataTableBuilders
         {
             DataTable = new DataTable();
         }
-        public DataTable BuildTable()
+        public DataTable BuildTable(DbObject[] items)
         {
-            var factory = (ApiFactory) Application.Current.Properties["apiFactory"];
-            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
-            service.QueryAllItems();
-            var customers = (Customer[]) service.GetAllItems();
-
+            var customers = (Customer[])items;
 
             DataColumn dataColumn;
             DataRow dataRow;
