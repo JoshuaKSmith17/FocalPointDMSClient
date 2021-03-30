@@ -5,6 +5,7 @@ using System.Windows.Input;
 using FocalPointDMSClient.Models.DataTableBuilders;
 using FocalPointDMSClient.Models.OrmModels;
 using FocalPointDMSClient.ViewModels.MainView;
+using FocalPointDMSClient.Controllers;
 
 namespace FocalPointDMSClient.ViewModels
 {
@@ -25,7 +26,7 @@ namespace FocalPointDMSClient.ViewModels
         {
             var mainViewModel = (MainViewModel) Application.Current.Properties["mainViewModel"];
             var factory = (DataTableBuilderFactory) Application.Current.Properties["DataTableBuilderFactory"];
-            var controller = factory.GetInstance(EntityType.Customer);
+            var controller = new CustomerController();
             mainViewModel.MainDataTable = controller.BuildTable();
             mainViewModel.StatusTextOutput += mainViewModel.MainDataTable.Rows.Count + " Customers Loaded\n";
         }
