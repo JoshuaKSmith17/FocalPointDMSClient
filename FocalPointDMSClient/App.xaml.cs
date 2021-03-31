@@ -17,9 +17,10 @@ namespace FocalPointDMSClient
         {
             base.OnStartup(e);
 
-            this.Properties["mainViewModel"] = new ViewModels.MainView.MainViewModel();
+            this.Properties["mainViewModel"] = new ViewModels.MainView.CustomerVm.CustomerMainViewModel();
             this.Properties["apiFactory"] = new Services.ApiFactory();
             this.Properties["DataTableBuilderFactory"] = new Models.DataTableBuilders.DataTableBuilderFactory();
+
 
         }
     }
