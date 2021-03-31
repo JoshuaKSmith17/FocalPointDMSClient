@@ -16,8 +16,6 @@ namespace FocalPointDMSClient.ViewModels.MainView.CustomerVm
             RecordAddCommand = new NewCustomerCommand();
             EntityType = EntityType.Customer;
 
-            // Sets the MainViewModel application property to this particular instance.
-            Application.Current.Properties["MainViewModel"] = this;
         }
     }
 }
