@@ -11,62 +11,64 @@
         
         <Grid Style="{StaticResource CommandPane}" Margin="10,73,10,797" Width="Auto" Height="30">
             <Button 
-            Name="GetCustomersButton" 
-            Command="{Binding GetCustomersCommand}"
-            Content="Customers" 
-            Margin="0,0,0,0"
-            HorizontalAlignment="Left"
-            Width="130"
-            Height="30"
+                Name="GetCustomersButton" 
+                Command="{Binding GetCustomersCommand}"
+                CommandParameter="{Binding}"
+                Click="GetCustomersButton_Click"
+                Content="Customers" 
+                Margin="0,0,0,0"
+                HorizontalAlignment="Left"
+                Width="130"
+                Height="30"
             />
 
             <Button 
-            x:Name="GetEquipmentButton"
-            Command="{Binding GetEquipmentCommand}"
-            Content="Equipment"
-            Margin="130,0,0,0"
-            HorizontalAlignment="Left"
-            Width="130"
-            Height="30"
+                x:Name="GetEquipmentButton"
+                Command="{Binding GetEquipmentCommand}"
+                Content="Equipment"
+                Margin="130,0,0,0"
+                HorizontalAlignment="Left"
+                Width="130"
+                Height="30"
             />
 
             <Button 
-            x:Name="RepairOrderButton"
-            Content="Repair Order" 
-            Margin="260,0,0,0"
-            HorizontalAlignment="Left"
-            Width="130"
-            Height="30"
+                x:Name="RepairOrderButton"
+                Content="Repair Order" 
+                Margin="260,0,0,0"
+                HorizontalAlignment="Left"
+                Width="130"
+                Height="30"
             />
 
             <Button
-            x:Name="DeleteItemButton"
-            Content="Delete Item"
-            Command="{Binding RecordDeleteCommand}"
-            Margin="0,0,260,0"
-            HorizontalAlignment="Right"
-            Width="130"
-            Height="30"
+                x:Name="DeleteItemButton"
+                Content="Delete Item"
+                Command="{Binding RecordDeleteCommand}"
+                Margin="0,0,260,0"
+                HorizontalAlignment="Right"
+                Width="130"
+                Height="30"
             />
 
             <Button
-            x:Name="NewItemButton"
-            Content="New Item"
-            Command="{Binding RecordAddCommand}"
-            Margin="0,0,130,0"
-            HorizontalAlignment="Right"
-            Width="130"
-            Height="30"
+                x:Name="NewItemButton"
+                Content="New Item"
+                Command="{Binding RecordAddCommand}"
+                Margin="0,0,130,0"
+                HorizontalAlignment="Right"
+                Width="130"
+                Height="30"
             />
 
             <Button
-            x:Name="EditItemButton"
-            Content="Edit Item"
-            Command="{Binding RecordDetailCommand}"
-            Margin="0,0,0,0"
-            HorizontalAlignment="Right"
-            Width="130"
-            Height="30"
+                x:Name="EditItemButton"
+                Content="Edit Item"
+                Command="{Binding RecordDetailCommand}"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Right"
+                Width="130"
+                Height="30"
             />
         </Grid>
 
