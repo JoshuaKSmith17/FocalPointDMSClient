@@ -25,12 +25,17 @@ namespace FocalPointDMSClient.ViewModels.MainView
 
         public void Execute(object parameter)
         {
+            var oldViewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];
+            oldViewModel.MainDataTable = null;
+
             var mainViewModel = new CustomerMainViewModel();
             Application.Current.Properties["mainViewModel"] =  mainViewModel;
 
             var factory = (DataTableBuilderFactory) Application.Current.Properties["DataTableBuilderFactory"];
             var controller = new CustomerController();
             mainViewModel.MainDataTable = controller.BuildTable();
+
+            oldViewModel.IsActiveViewModel = false;
             mainViewModel.StatusTextOutput += mainViewModel.MainDataTable.Rows.Count + " Customers Loaded\n";
         }
     }
