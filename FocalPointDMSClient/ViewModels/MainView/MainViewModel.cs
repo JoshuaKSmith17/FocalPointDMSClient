@@ -12,6 +12,7 @@ namespace FocalPointDMSClient.ViewModels.MainView
         private DataTable dataTable;
         private static string statusTextOutput;
         private DataRowView selectedItemRow;
+        private bool isActiveViewModel;
         public event PropertyChangedEventHandler PropertyChanged;
         public EntityType EntityType { get; set; }
         public ICommand GetCustomersCommand { get; set; }
@@ -53,6 +54,16 @@ namespace FocalPointDMSClient.ViewModels.MainView
             }
         }
 
+        public bool IsActiveViewModel
+        {
+            get { return isActiveViewModel; }
+            set
+            {
+                isActiveViewModel = value;
+                OnPropertyChanged();
+            }
+        }
+
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
@@ -64,6 +75,7 @@ namespace FocalPointDMSClient.ViewModels.MainView
             GetCustomersCommand = new GetCustomersCommand();
             GetEquipmentCommand = new GetEquipmentCommand();
             StatusTextOutput = new string("");
+            IsActiveViewModel = true;
         }
 
     }
