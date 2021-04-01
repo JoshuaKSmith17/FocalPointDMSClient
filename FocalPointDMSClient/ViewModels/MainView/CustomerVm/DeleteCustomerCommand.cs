@@ -6,6 +6,7 @@ using System.Windows.Input;
 
 using FocalPointDMSClient.Controllers;
 using FocalPointDMSClient.Models.EntityConverters;
+using FocalPointDMSClient.Models.OrmModels;
 
 namespace FocalPointDMSClient.ViewModels.MainView.CustomerVm
 {
@@ -29,7 +30,7 @@ namespace FocalPointDMSClient.ViewModels.MainView.CustomerVm
 
             var customer = customerConverter.Convert();
 
-            CustomerController controller = new CustomerController();
+            QueryController controller = new QueryController(EntityType.Customer);
             controller.DeleteRecord(customer);
         }
     }

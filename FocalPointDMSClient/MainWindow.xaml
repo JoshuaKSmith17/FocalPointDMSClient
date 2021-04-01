@@ -25,6 +25,8 @@
             <Button 
                 x:Name="GetEquipmentButton"
                 Command="{Binding GetEquipmentCommand}"
+                CommandParameter="{Binding}"
+                Click="GetCustomersButton_Click"
                 Content="Equipment"
                 Margin="130,0,0,0"
                 HorizontalAlignment="Left"
@@ -78,6 +80,8 @@
             Name="TestBox" 
             Text="{Binding Path=StatusTextOutput}" 
             TextWrapping="Wrap" Margin="10,759,10,10"
+            MaxHeight="130"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
             />
 
         <Grid Margin="0,108,0,150" Width="Auto" Height="640">

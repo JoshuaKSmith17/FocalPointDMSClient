@@ -2,9 +2,9 @@
 using System.Windows;
 using System.Windows.Input;
 
-using FocalPointDMSClient.Models.DataTableBuilders;
+using FocalPointDMSClient.Controllers;
 using FocalPointDMSClient.Models.OrmModels;
-using FocalPointDMSClient.ViewModels.MainView;
+using FocalPointDMSClient.ViewModels.MainView.EquipmentVm;
 
 namespace FocalPointDMSClient.ViewModels.MainView
 {
@@ -23,11 +23,18 @@ namespace FocalPointDMSClient.ViewModels.MainView
 
         public void Execute(object parameter)
         {
-            var mainViewModel = (MainViewModel) Application.Current.Properties["mainViewModel"];
-            var factory = (DataTableBuilderFactory) Application.Current.Properties["DataTableBuilderFactory"];
-            IDataTableBuilder controller = factory.GetInstance(EntityType.Equipment);
-            //mainViewModel.MainDataTable = controller.BuildTable();
-            mainViewModel.StatusTextOutput += mainViewModel.MainDataTable.Rows.Count + " Equipment Items Loaded\n";
+            var oldViewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];
+            oldViewModel.MainDataTable = null;
+
+            var mainViewModel = new EquipmentMainViewModel();
+            Application.Current.Properties["mainViewModel"] = mainViewModel;
+
+            var controller = new QueryController(EntityType.Equipment);
+            mainViewModel.MainDataTable = controller.GetAllRecords();
+
+            oldViewModel.IsActiveViewModel = false;
+            mainViewModel.StatusTextOutput = mainViewModel.MainDataTable.Rows.Count + " Equipment Items Loaded\n" +
+                                                mainViewModel.StatusTextOutput;
 
         }
     }

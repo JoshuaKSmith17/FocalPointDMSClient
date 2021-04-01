@@ -26,11 +26,11 @@ namespace FocalPointDMSClient.ViewModels.CustomerDetailViewModel
         {
 
             var input = (Customer)parameter;
-            CustomerController controller = new CustomerController();
+            QueryController controller = new QueryController(EntityType.Customer);
             controller.UpdateRecord(input);
 
             var viewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];
-            viewModel.MainDataTable = controller.BuildTable();
+            viewModel.MainDataTable = controller.GetAllRecords();
             viewModel.StatusTextOutput += viewModel.MainDataTable.Rows.Count + " Customers Loaded\n";
         }
     }

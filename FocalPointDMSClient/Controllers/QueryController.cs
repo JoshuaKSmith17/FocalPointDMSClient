@@ -12,17 +12,24 @@ using FocalPointDMSClient.Services;
 
 namespace FocalPointDMSClient.Controllers
 {
-    class CustomerController : IController
+    class QueryController : IController
     {
-        public DataTable BuildTable()
+        EntityType RequestEntity;
+
+        public QueryController(EntityType entityType)
+        {
+            RequestEntity = entityType;
+        }
+
+        public DataTable GetAllRecords()
         {
             var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
-            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
+            IApiServiceStrategy service = factory.GetInstance(RequestEntity);
 
             Task<DbObject[]> customers = service.QueryAllItems();
 
             var dataTableFactory = (DataTableBuilderFactory)Application.Current.Properties["DataTableBuilderFactory"];
-            var tableBuilder = dataTableFactory.GetInstance(EntityType.Customer);
+            var tableBuilder = dataTableFactory.GetInstance(RequestEntity);
             var dataTable = tableBuilder.BuildTable(customers.Result);
 
             return dataTable;
@@ -31,7 +38,7 @@ namespace FocalPointDMSClient.Controllers
         public void UpdateRecord(DbObject item)
         {
             var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
-            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
+            IApiServiceStrategy service = factory.GetInstance(RequestEntity);
 
             service.PutItem(item);
         }
@@ -39,7 +46,7 @@ namespace FocalPointDMSClient.Controllers
         public void CreateRecord(DbObject item)
         {
             var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
-            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
+            IApiServiceStrategy service = factory.GetInstance(RequestEntity);
 
             service.CreateItem(item);
         }
@@ -47,7 +54,7 @@ namespace FocalPointDMSClient.Controllers
         public void DeleteRecord(DbObject item)
         {
             var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
-            IApiServiceStrategy service = factory.GetInstance(EntityType.Customer);
+            IApiServiceStrategy service = factory.GetInstance(RequestEntity);
 
             service.DeleteItem(item);
         }
