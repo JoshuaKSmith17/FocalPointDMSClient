@@ -22,6 +22,19 @@ namespace FocalPointDMSClient.Tests
                 Model = "Test",
                 SerialNumber = "Test"
             };
+
+            _equipmentDataTableBuilder = new EquipmentDataTableBuilder();
+        }
+
+        [TestCase("Make")]
+        [TestCase("Model")]
+        [TestCase("Serial Number")]
+        public void IsEmptyEquipmentDataTable(string fieldName)
+        {
+            var result = _equipmentDataTableBuilder.BuildTable(_equipments)
+                .Rows[0][fieldName].ToString().Equals("");
+
+            Assert.IsTrue(result, "The DataTable is not empty");
         }
     }
 }
