@@ -36,5 +36,14 @@ namespace FocalPointDMSClient.Tests
 
             Assert.IsTrue(result, "The DataTable is not empty");
         }
+
+        [TestCase("id")]
+        public void IsEmptyEquipmentDataTableNums(string fieldName)
+        {
+            var result = _equipmentDataTableBuilder.BuildTable(_equipments)
+                .Rows[0][fieldName].ToString().Equals("0");
+
+            Assert.IsTrue(result, "The DataTable is not empty");
+        }
     }
 }
