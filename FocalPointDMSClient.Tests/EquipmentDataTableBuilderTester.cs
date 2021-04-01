@@ -57,5 +57,13 @@ namespace FocalPointDMSClient.Tests
             Assert.IsTrue(result, "The DataTable value is incorrect");
         }
 
+        [TestCase("id")]
+        public void NonEmptyEquipmentDataTableNums(string fieldName)
+        {
+            var result = _equipmentDataTableBuilder.BuildTable(_equipments)
+                .Rows[1][fieldName].ToString().Equals("1");
+
+            Assert.IsTrue(result, "The DataTable value is incorrect");
+        }
     }
 }
