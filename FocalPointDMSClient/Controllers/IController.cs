@@ -6,7 +6,7 @@ namespace FocalPointDMSClient.Controllers
 {
     interface IController
     {
-        public DataTable BuildTable();
+        public DataTable GetAllRecords();
         public void UpdateRecord(DbObject item);
     }
 }

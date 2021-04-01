@@ -32,8 +32,8 @@ namespace FocalPointDMSClient.ViewModels.MainView
             Application.Current.Properties["mainViewModel"] =  mainViewModel;
 
             var factory = (DataTableBuilderFactory) Application.Current.Properties["DataTableBuilderFactory"];
-            var controller = new CustomerController(EntityType.Customer);
-            mainViewModel.MainDataTable = controller.BuildTable();
+            var controller = new QueryController(EntityType.Customer);
+            mainViewModel.MainDataTable = controller.GetAllRecords();
 
             oldViewModel.IsActiveViewModel = false;
             mainViewModel.StatusTextOutput += mainViewModel.MainDataTable.Rows.Count + " Customers Loaded\n";

@@ -12,16 +12,16 @@ using FocalPointDMSClient.Services;
 
 namespace FocalPointDMSClient.Controllers
 {
-    class CustomerController : IController
+    class QueryController : IController
     {
         EntityType RequestEntity;
 
-        public CustomerController(EntityType entityType)
+        public QueryController(EntityType entityType)
         {
             RequestEntity = entityType;
         }
 
-        public DataTable BuildTable()
+        public DataTable GetAllRecords()
         {
             var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
             IApiServiceStrategy service = factory.GetInstance(RequestEntity);

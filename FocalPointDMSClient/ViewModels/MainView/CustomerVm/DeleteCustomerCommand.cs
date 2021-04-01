@@ -30,7 +30,7 @@ namespace FocalPointDMSClient.ViewModels.MainView.CustomerVm
 
             var customer = customerConverter.Convert();
 
-            CustomerController controller = new CustomerController(EntityType.Customer);
+            QueryController controller = new QueryController(EntityType.Customer);
             controller.DeleteRecord(customer);
         }
     }
