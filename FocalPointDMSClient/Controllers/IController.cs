@@ -8,5 +8,7 @@ namespace FocalPointDMSClient.Controllers
     {
         public DataTable GetAllRecords();
         public void UpdateRecord(DbObject item);
+        public void CreateRecord(DbObject item);
+        public void DeleteRecord(DbObject item);
     }
 }
