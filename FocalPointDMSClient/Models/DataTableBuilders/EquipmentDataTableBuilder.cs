@@ -17,13 +17,8 @@ namespace FocalPointDMSClient.Models.DataTableBuilders
         }
         public DataTable BuildTable(DbObject[] items)
         {
+            var equipmentItems = (Equipment[])items;
             
-
-            var factory = (ApiFactory)Application.Current.Properties["apiFactory"];
-            IApiServiceStrategy service = factory.GetInstance(EntityType.Equipment);
-            service.QueryAllItems();
-            var equipmentItems = (Equipment[])service.GetAllItems();
-
             DataColumn dataColumn;
             DataRow dataRow;
 
