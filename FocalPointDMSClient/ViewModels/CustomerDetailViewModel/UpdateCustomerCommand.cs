@@ -26,7 +26,7 @@ namespace FocalPointDMSClient.ViewModels.CustomerDetailViewModel
         {
 
             var input = (Customer)parameter;
-            CustomerController controller = new CustomerController();
+            CustomerController controller = new CustomerController(EntityType.Customer);
             controller.UpdateRecord(input);
 
             var viewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];

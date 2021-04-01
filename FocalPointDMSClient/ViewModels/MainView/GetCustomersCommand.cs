@@ -32,7 +32,7 @@ namespace FocalPointDMSClient.ViewModels.MainView
             Application.Current.Properties["mainViewModel"] =  mainViewModel;
 
             var factory = (DataTableBuilderFactory) Application.Current.Properties["DataTableBuilderFactory"];
-            var controller = new CustomerController();
+            var controller = new CustomerController(EntityType.Customer);
             mainViewModel.MainDataTable = controller.BuildTable();
 
             oldViewModel.IsActiveViewModel = false;
