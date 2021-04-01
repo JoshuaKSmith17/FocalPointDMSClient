@@ -10,7 +10,7 @@ namespace FocalPointDMSClient.ViewModels.MainView
     abstract class MainViewModel : INotifyPropertyChanged
     {
         private DataTable dataTable;
-        private static string statusTextOutput;
+        private static string statusTextOutput = "";
         private DataRowView selectedItemRow;
         private bool isActiveViewModel;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -74,7 +74,6 @@ namespace FocalPointDMSClient.ViewModels.MainView
             MainDataTable = new DataTable();
             GetCustomersCommand = new GetCustomersCommand();
             GetEquipmentCommand = new GetEquipmentCommand();
-            StatusTextOutput = new string("");
             IsActiveViewModel = true;
         }
 
