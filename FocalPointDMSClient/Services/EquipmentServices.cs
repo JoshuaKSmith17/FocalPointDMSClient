@@ -4,10 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace FocalPointDMSClient.Services
 {
-    class EquipmentServices
+    class EquipmentServices : IApiServiceStrategy
     {
         HttpClient Client;
         Equipment[] Items;
@@ -17,13 +18,14 @@ namespace FocalPointDMSClient.Services
         {
             Client = new HttpClient();
         }
-        public async void QueryAllItems()
+        public async Task<DbObject[]> QueryAllItems()
         {
             Client.BaseAddress = new Uri("https://localhost:44345/api/");
 
             var responseTask = Client.GetAsync("Equipment");
             responseTask.Wait();
             Items = await responseTask.Result.Content.ReadAsAsync<Equipment[]>();
+            return Items;
         }
 
         public DbObject[] GetAllItems()
@@ -33,17 +35,17 @@ namespace FocalPointDMSClient.Services
 
         public void PutItem(DbObject item)
         {
-
+            throw new NotImplementedException();
         }
 
         public void CreateItem(DbObject item)
         {
-
+            throw new NotImplementedException();
         }
 
         public void DeleteItem(DbObject item)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

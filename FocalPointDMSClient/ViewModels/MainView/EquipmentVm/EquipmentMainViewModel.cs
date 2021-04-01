@@ -14,8 +14,6 @@ namespace FocalPointDMSClient.ViewModels.MainView.EquipmentVm
 
             EntityType = EntityType.Equipment;
 
-            // Sets the MainViewModel application property to this particular instance.
-            Application.Current.Properties["MainViewModel"] = this;
         }
     }
 }
