@@ -36,7 +36,8 @@ namespace FocalPointDMSClient.Tests
         [TestCase("State")]
         public void IsEmptyCustomerDataTable(string fieldName)
         {
-            var result = _customerDataTableBuilder.BuildTable(_customers).Rows[0][fieldName].ToString().Equals("");
+            var result = _customerDataTableBuilder.BuildTable(_customers)
+                .Rows[0][fieldName].ToString().Equals("");
 
             Assert.IsTrue(result, "The DataTable is not empty");
         }
@@ -45,7 +46,8 @@ namespace FocalPointDMSClient.Tests
         [TestCase("Zip Code")]
         public void IsEmptyCustomerDataTableNums(string fieldName)
         {
-            var result = _customerDataTableBuilder.BuildTable(_customers).Rows[0][fieldName].ToString().Equals("0");
+            var result = _customerDataTableBuilder.BuildTable(_customers)
+                .Rows[0][fieldName].ToString().Equals("0");
 
             Assert.IsTrue(result, "The DataTable is not empty");
         }
@@ -56,7 +58,8 @@ namespace FocalPointDMSClient.Tests
         [TestCase("State")]
         public void NonEmptyCustomerDataTable(string fieldName)
         {
-            var result = _customerDataTableBuilder.BuildTable(_customers).Rows[1][fieldName].ToString().Equals("Test");
+            var result = _customerDataTableBuilder.BuildTable(_customers)
+                .Rows[1][fieldName].ToString().Equals("Test");
 
             Assert.IsTrue(result, "The DataTable values are incorrect.");
         }
@@ -65,7 +68,8 @@ namespace FocalPointDMSClient.Tests
         [TestCase("Zip Code")]
         public void NonEmptyCustomerDataTableNums(string fieldName)
         {
-            var result = _customerDataTableBuilder.BuildTable(_customers).Rows[1][fieldName].ToString().Equals("1");
+            var result = _customerDataTableBuilder.BuildTable(_customers)
+                .Rows[1][fieldName].ToString().Equals("1");
 
             Assert.IsTrue(result, "The DataTable values are incorrect");
         }
