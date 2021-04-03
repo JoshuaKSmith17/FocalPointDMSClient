@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace FocalPointDMSClient.Services
 {
@@ -28,24 +30,33 @@ namespace FocalPointDMSClient.Services
             return Items;
         }
 
+        public async Task<HttpResponseMessage> PutItem(DbObject item)
+        {
+            Client.BaseAddress = new Uri("https://localhost:44345/api/");
+
+            var output = JsonConvert.SerializeObject(item);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(output);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var responseTask = await Client.PutAsync("Equipment/" + item.Id, byteContent);
+
+            return responseTask;
+        }
+
+        public async Task<HttpResponseMessage> CreateItem(DbObject item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<HttpResponseMessage> DeleteItem(DbObject item)
+        {
+            throw new NotImplementedException();
+        }
+
         public DbObject[] GetAllItems()
         {
             return Items;
-        }
-
-        public void PutItem(DbObject item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateItem(DbObject item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteItem(DbObject item)
-        {
-            throw new NotImplementedException();
         }
     }
 }
