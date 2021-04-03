@@ -49,6 +49,7 @@
             <Setter Property="BorderBrush" Value="#333333"/>
             <Setter Property="GridLinesVisibility" Value="None"/>
             <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="SelectionMode" Value="Single"/>
         </Style>
 
         <Style TargetType="DataGridColumnHeader">
