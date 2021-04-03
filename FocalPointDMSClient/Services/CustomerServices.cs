@@ -31,7 +31,7 @@ namespace FocalPointDMSClient.Services
             
         }
 
-        public async void PutItem(DbObject item)
+        public async Task<HttpResponseMessage> PutItem(DbObject item)
         {
             Client.BaseAddress = new Uri("https://localhost:44345/api/");
 
@@ -41,9 +41,11 @@ namespace FocalPointDMSClient.Services
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             var responseTask = await Client.PutAsync("Customers/" + item.Id, byteContent);
+
+            return responseTask;
         }
 
-        public async void CreateItem(DbObject item)
+        public async Task<HttpResponseMessage> CreateItem(DbObject item)
         {
             Client.BaseAddress = new Uri("https://localhost:44345/api/");
 
@@ -53,13 +55,17 @@ namespace FocalPointDMSClient.Services
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
             var responseTask = await Client.PostAsync("Customers/", byteContent);
+
+            return responseTask;
         }
 
-        public async void DeleteItem(DbObject item)
+        public async Task<HttpResponseMessage> DeleteItem(DbObject item)
         {
             Client.BaseAddress = new Uri("https://localhost:44345/api/");
 
             var responseTask = await Client.DeleteAsync("Customers/" + item.Id);
+
+            return responseTask;
         }
 
         public DbObject[] GetAllItems()
