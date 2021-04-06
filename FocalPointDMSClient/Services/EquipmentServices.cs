@@ -10,7 +10,7 @@ using System.Net.Http.Headers;
 
 namespace FocalPointDMSClient.Services
 {
-    class EquipmentServices : IApiServiceStrategy
+    public class EquipmentServices : IApiServiceStrategy
     {
         HttpClient Client;
         Equipment[] Items;

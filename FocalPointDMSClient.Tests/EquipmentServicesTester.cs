@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using NUnit.Framework;
-using System.Net.Http;
 using System.Net;
 
 using FocalPointDMSClient.Services;
@@ -43,7 +42,7 @@ namespace FocalPointDMSClient.Tests
         {
             var result = _service.PutItem(_emptyEquipment).Result.StatusCode == HttpStatusCode.NotFound;
 
-            Assert.IsTrue(result, "The item was not created");
+            Assert.IsTrue(result, "The response code is invalid");
         }
 
         [Test]
