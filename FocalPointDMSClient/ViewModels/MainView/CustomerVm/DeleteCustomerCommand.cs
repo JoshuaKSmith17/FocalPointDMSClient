@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Input;
 
@@ -26,9 +24,8 @@ namespace FocalPointDMSClient.ViewModels.MainView.CustomerVm
         public void Execute(object parameter)
         {
             var mainViewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];
-            var customerConverter = new CustomerConverter(mainViewModel.SelectedItemRow);
 
-            var customer = customerConverter.Convert();
+            var customer = new Customer(mainViewModel.SelectedItemRow);
 
             QueryController controller = new QueryController(EntityType.Customer);
             controller.DeleteRecord(customer);
