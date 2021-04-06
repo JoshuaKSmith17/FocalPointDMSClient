@@ -6,9 +6,9 @@ using FocalPointDMSClient.Controllers;
 using FocalPointDMSClient.Models.EntityConverters;
 using FocalPointDMSClient.Models.OrmModels;
 
-namespace FocalPointDMSClient.ViewModels.MainView.CustomerVm
+namespace FocalPointDMSClient.ViewModels.MainView.EquipmentVm
 {
-    class DeleteCustomerCommand : ICommand
+    class DeleteEquipmentCommand : ICommand
     {
         public bool CanExecute(object parameter)
         {
@@ -23,12 +23,13 @@ namespace FocalPointDMSClient.ViewModels.MainView.CustomerVm
 
         public void Execute(object parameter)
         {
-            var mainViewModel = (MainViewModel)Application.Current.Properties["mainViewModel"];
+            var mainViewModel = (MainViewModel)Application.Current.Properties["mainViewModel"]; 
 
-            var customer = new Customer(mainViewModel.SelectedItemRow);
+            var customer = new Equipment(mainViewModel.SelectedItemRow);
 
-            QueryController controller = new QueryController(EntityType.Customer);
+            QueryController controller = new QueryController(EntityType.Equipment);
             controller.DeleteRecord(customer);
         }
     }
 }
+

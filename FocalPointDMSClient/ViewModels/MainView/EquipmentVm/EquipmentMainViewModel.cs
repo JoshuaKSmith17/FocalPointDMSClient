@@ -13,6 +13,7 @@ namespace FocalPointDMSClient.ViewModels.MainView.EquipmentVm
         {
 
             EntityType = EntityType.Equipment;
+            RecordDeleteCommand = new DeleteEquipmentCommand();
 
         }
     }
