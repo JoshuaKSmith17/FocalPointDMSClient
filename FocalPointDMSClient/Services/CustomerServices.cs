@@ -1,9 +1,6 @@
-﻿using FocalPointDMSClient.Models;
-using FocalPointDMSClient.Models.OrmModels;
+﻿using FocalPointDMSClient.Models.OrmModels;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
