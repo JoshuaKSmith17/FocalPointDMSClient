@@ -20,7 +20,12 @@ namespace FocalPointDMSClient.Services
 
         public async Task<DbObject[]> QueryAllItems()
         {
-            throw new NotImplementedException();
+            Client.BaseAddress = new Uri("https://localhost:44345/api/");
+
+            var responseTask = Client.GetAsync("RepairOrders");
+            responseTask.Wait();
+            Items = await responseTask.Result.Content.ReadAsAsync<RepairOrder[]>();
+            return Items;
         }
 
         public async Task<HttpResponseMessage> PutItem(DbObject item)
