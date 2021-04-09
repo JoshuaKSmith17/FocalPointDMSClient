@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
-using System.Windows;
+﻿using NUnit.Framework;
 using System.Net;
-
 
 using FocalPointDMSClient.Services;
 using FocalPointDMSClient.Models.OrmModels;
@@ -42,6 +37,8 @@ namespace FocalPointDMSClient.Tests
 
             Assert.IsTrue(result, "The array is empty");
         }
+
+        [Test]
         public void EmptyCustomerServicesPutTest()
         {
             var result = _service.PutItem(_emptyCustomer).Result.StatusCode == HttpStatusCode.NotFound;

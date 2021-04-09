@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 
 namespace FocalPointDMSClient.Services
 {
-    public class CustomerServices : IApiServiceStrategy
+    public class RepairOrderServices : IApiServiceStrategy
     {
         HttpClient Client;
-        Customer[] Items;
-        public EntityType EntityType => EntityType.Customer;
-        public CustomerServices()
+        RepairOrder[] Items;
+        public EntityType EntityType => EntityType.RepairOrder;
+
+        public RepairOrderServices()
         {
             Client = new HttpClient();
         }
+
         public async Task<DbObject[]> QueryAllItems()
         {
             Client.BaseAddress = new Uri("https://localhost:44345/api/");
 
-            var responseTask = Client.GetAsync("Customers");
+            var responseTask = Client.GetAsync("RepairOrders");
             responseTask.Wait();
-            Items = await responseTask.Result.Content.ReadAsAsync<Customer[]>();
-
+            Items = await responseTask.Result.Content.ReadAsAsync<RepairOrder[]>();
             return Items;
-            
         }
 
         public async Task<HttpResponseMessage> PutItem(DbObject item)
@@ -37,7 +37,7 @@ namespace FocalPointDMSClient.Services
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var responseTask = await Client.PutAsync("Customers/" + item.Id, byteContent);
+            var responseTask = await Client.PutAsync("RepairOrders/" + item.Id, byteContent);
 
             return responseTask;
         }
@@ -51,7 +51,7 @@ namespace FocalPointDMSClient.Services
             var byteContent = new ByteArrayContent(buffer);
             byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var responseTask = await Client.PostAsync("Customers/", byteContent);
+            var responseTask = await Client.PostAsync("RepairOrders/", byteContent);
 
             return responseTask;
         }
@@ -60,7 +60,7 @@ namespace FocalPointDMSClient.Services
         {
             Client.BaseAddress = new Uri("https://localhost:44345/api/");
 
-            var responseTask = await Client.DeleteAsync("Customers/" + item.Id);
+            var responseTask = await Client.DeleteAsync("RepairOrders/" + item.Id);
 
             return responseTask;
         }
