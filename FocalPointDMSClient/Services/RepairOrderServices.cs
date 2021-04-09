@@ -30,17 +30,39 @@ namespace FocalPointDMSClient.Services
 
         public async Task<HttpResponseMessage> PutItem(DbObject item)
         {
-            throw new NotImplementedException();
+            Client.BaseAddress = new Uri("https://localhost:44345/api/");
+
+            var output = JsonConvert.SerializeObject(item);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(output);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var responseTask = await Client.PutAsync("RepairOrders/" + item.Id, byteContent);
+
+            return responseTask;
         }
 
         public async Task<HttpResponseMessage> CreateItem(DbObject item)
         {
-            throw new NotImplementedException();
+            Client.BaseAddress = new Uri("https://localhost:44345/api/");
+
+            var output = JsonConvert.SerializeObject(item);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(output);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var responseTask = await Client.PostAsync("RepairOrders/", byteContent);
+
+            return responseTask;
         }
 
         public async Task<HttpResponseMessage> DeleteItem(DbObject item)
         {
-            throw new NotImplementedException();
+            Client.BaseAddress = new Uri("https://localhost:44345/api/");
+
+            var responseTask = await Client.DeleteAsync("RepairOrders/" + item.Id);
+
+            return responseTask;
         }
 
         public DbObject[] GetAllItems()
