@@ -34,5 +34,22 @@ namespace FocalPointDMSClient.Tests
 
             Assert.IsTrue(result, "The array is empty");
         }
+
+        [Test]
+        public void EmptyRepairOrderServicesPutTest()
+        {
+            var result = _service.PutItem(_emptyRepairOrder).Result.StatusCode == HttpStatusCode.NotFound;
+
+            Assert.IsTrue(result, "The response code is invalid");
+        }
+
+        [Test]
+        public void RepairOrderServicesPutTest()
+        {
+            var result = _service.PutItem(_repairOrder).Result.StatusCode == HttpStatusCode.NoContent;
+
+            Assert.IsTrue(result, "The item was not created");
+        }
+
     }
 }
