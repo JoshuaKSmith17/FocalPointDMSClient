@@ -37,6 +37,8 @@ namespace FocalPointDMSClient.Tests
 
             Assert.IsTrue(result, "The array is empty");
         }
+
+        [Test]
         public void EmptyCustomerServicesPutTest()
         {
             var result = _service.PutItem(_emptyCustomer).Result.StatusCode == HttpStatusCode.NotFound;
